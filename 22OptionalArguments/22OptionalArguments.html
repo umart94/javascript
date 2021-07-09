@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>OptionalArguments</title>
+<link rel="stylesheet" type="text/css" media="all" href="styles/styles.css" />
+</head>
+<body style="background-color:white">
+
+<h1>OptionalArguments</h1>
+
+<h3></h3>
+<p id="message1" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+<p id="message2" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+<p id="message3" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+<p id="message4" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+
+<p id="message5" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+
+
+<p id="message6" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+
+
+<p id="message7" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+
+
+
+<p id="message8" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+
+
+
+<p id="message9" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+
+
+
+
+<p id="message10" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+
+
+
+
+<p id="message11" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+
+
+
+
+
+<p id="message12" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+
+
+
+<p id="message13" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+<p id="message14" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+<div id="message"></div>
+
+<script src="module2a.js"></script>
+<script>
+/*
+we can pass either the name of the div in plaintext
+or use document.getElementById
+
+0 and 2 indicate the start and ending index of the array we passed.
+*/
+Lib.Output.Write("Hello world 1");
+Lib.Output.Write("Hello world 2","message");
+Lib.Output.Write(["Hello","world",3,"from","JavaScript","Language"],document.getElementById("message"),0,2,"#009688");
+Lib.Output.Write(["Hello","world",3,"from","JavaScript","Language"],document.getElementById("message"),3,5,"#b0bec5");
+</script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Count numbers: <output id="result"></output></p>
+<button onclick="startWorker()">Start Worker</button>
+<button onclick="stopWorker()">Stop Worker</button>
+
+<script>
+
+/*
+browser works on a single thread
+it has to wait for task to finish when we open a tab or do some other task ( if there is less memory)
+
+webworkers wont work from cross domains
+
+use
+python -m SimpleHTTPServer
+
+or for python3
+
+py -m http.server
+
+or
+
+python -m http.server 
+
+or
+pip install ipython
+
+ipython -m http.server 8000
+
+threads allow for tasks to run in parallel.
+
+webworkers not supported in ie9 and below
+webworker cannot access the dom, we cannot modify dom from web worker code
+we cannot access global variables
+access for some objects are readonly and restricted.
+
+but we can make ajax requests , mathematical operations etc.
+
+
+*/
+var w;
+
+function startWorker() {
+  if (typeof(Worker) !== "undefined") {
+    if (typeof(w) == "undefined") {
+      w = new Worker("demo_workers.js");
+    }
+    w.onmessage = function(event) {
+      document.getElementById("result").innerHTML = event.data;
+    };
+  } else {
+    document.getElementById("result").innerHTML = "Sorry! No Web Worker support.";
+  }
+}
+
+function stopWorker() {
+  w.terminate();
+  w = undefined;
+}
+</script>
+
+</body>
+</html>

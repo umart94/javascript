@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>How to add JavaScript to your web page</title>
+<link rel="stylesheet" type="text/css" media="all" href="styles/styles.css" />
+</head>
+<body>
+
+<h1>JavaScript Arrays</h1>
+
+<p id="message"> </p>
+<p id="message2"> </p>
+<p id="message3"> </p>
+
+<p id="message4"> </p>
+<p id="message5" style="font-style: bold; color:red;"> </p>
+<p id="message6"> </p>
+
+<p id="message7"> </p>
+<p id="message8"> </p>
+<p id="message9"> </p>
+<p id="message10"> </p>
+<p id="message11"> </p>
+<script>
+
+
+
+
+var arr1 = ["a","b","c","d","e","f","g","h","i"];
+var arr3 = ["Lamborghini","Bugatti","AstonMartin","HondaCivic","Nissan GTR","Lancer Evolution IX","Mitsubishi Eclipse","Ford Mustang","Porsche Spyder","Mclaren P1"];
+var arr2 = arr1.slice(3,6);
+message.textContent = arr2.toString(); //immutable form of function.. since after slice.. the array returned is a new array
+
+
+message2.textContent = arr1.reverse();//reverses original array. mutable
+message3.textContent = arr1.sort();//sorts elements back mutable
+message4.textContent = arr1.slice(4);//assumes that you want to start from whatever range of the index of array of number you entered... and go till the ending mutable
+message5.textContent = arr1.slice(4,-1);//assumes that you want to start from whatever range of the index of array of number you entered... and go till the ending mutable
+//but there is a slight change for the 2nd negative offset index value
+//that means that from right go n negative spaces to left and then slice the array (beginning,-n)
+//message6.textContent = arr1.slice(4,2,"x","y","z");//.slice(index,howMany,element1,element2,element3,elementn)
+//start from index , remove howMany elements , and insert elements afterwards to the array (length will variate)
+
+//SLICE NAHIN HAI SPLICE HAI !!!! :D
+arr3.splice(5,2,"BMW M3 GTR","CHEVORLET CAMARO","AVENTADOR","MURCIELAGO","SUPER VELOCE AVENTADOR","GALLARDO" );
+message6.textContent = arr3.toString();
+
+//note this v v v important point
+
+//if you call the function splice and assign it to another variable then it will only return the 2 values
+var array4 = arr3.splice(5,2,"BMW M3 GTR","CHEVORLET CAMARO","AVENTADOR","MURCIELAGO","SUPER VELOCE AVENTADOR","GALLARDO" );
+message7.textContent = array4.toString();
+//because this is IMMMUTABLE VERSION
+//as it is working on arr3 , but returning the array to array4
+message8.textContent = arr3.toString(); // note that arr3 is still modified ... but now as we are not assigning to another array , so only arr3 is affected
+
+
+var arrayOfStrings = ["oreo","mentos","Lays","Pepsi"];
+message9.textContent = arrayOfStrings.join("--");
+
+
+
+
+
+function arrayObject(data) {
+  var arr = [];
+  for(var i = 0; i < data.length; i++){
+      var myObj = {};
+          for(var j = 0; j < data[i].length; j++){
+              myObj[data[i][j][0]] =  data[i][j][1]; 
+          }
+      arr.push(myObj);
+  }
+  return arr;
+}
+
+var input = [
+  [
+      ['firstName', 'Joe'], 
+      ['lastName', 'Blow'], 
+      ['age', 42], 
+      ['role', 'clerk']
+  ],
+  [
+      ['firstName', 'Mary'],
+      ['lastName', 'Jenkins'],
+      ['age', 36],
+      ['role', 'manager']
+  ]
+];
+
+var output = arrayObject(input);
+console.log(output);
+
+
+var items = [[['firstName', 'Joe'], ['lastName', 'Blow'], ['age', 42], ['role', 'clerk']], [['firstName', 'Mary'], ['lastName', 'Jenkins'], ['age', 36], ['role', 'manager']]];
+
+var result = [];
+// first loop through items
+items.forEach(function(item)
+{
+   var obj = {};
+   // then loop through properties
+   item.forEach(function (value)
+   {
+      // then set property and value
+      obj[value[0]] = value[1];
+   });
+
+   // once all is done push the object
+   result.push(obj);
+});
+
+console.log(result);
+/*
+//multidimensional arrays
+var m = [2][2];
+//m[0] = [];//define first row, row inside an element , i.e an array inside an element of the matrix (2d array) afterwards
+m[0][0] = "0-0";
+m[0][1] = "0-1";
+m[0][2] = "0-2";
+//m[1] = [];
+m[1][0] = "1-0";
+m[1][1] = "1-1";
+m[1][2] = "1-2";
+*/
+
+
+message10.textContent = JSON.stringify(output);
+message11.textContent = JSON.stringify(result);
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Styling elements</title>
+<link rel="stylesheet" type="text/css" media="all" href="styles.css" />
+</head>
+<body>
+
+<header>
+	<h1>An Introduction to JavaScript</h1>
+	<p>Dynamic Styling</p>
+</header>
+
+<article>
+
+	<p class="animate" id="myelement">A paragraph.</p>
+<!--
+to view the attribute properties in chrome
+
+select the element in chrome dev tools
+and then type 
+console.dir($0);
+press enter
+
+it will show all the object properties of the paragraph tag.. some of these are read only.
+
+we change style property.
+
+var e = document.getElementById("myelement");
+e.style.textAlign="center";
+e.style.color="#00f";
+e.style.backgroundColor="#ff0";
+e.style.border="5px solid #f00";
+e.setAttribute=("class","animate");
+e.className="animate";
+-->
+</article>
+
+</body>
+</html>

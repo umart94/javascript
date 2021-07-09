@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Bitwise Operators</title>
+<link rel="stylesheet" type="text/css" media="all" href="styles/styles.css" />
+</head>
+<body style="background-color:white">
+
+<h1>Bitwise Operators</h1>
+
+<h3></h3>
+<p id="message1" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+<h3></h3>
+<p id="message2" style = "
+font-family:verdana; 
+background-color:#006400;
+color: LightGray;"> </p>
+
+
+
+<h3></h3>
+<p id="message3" style = "
+font-family:verdana; 
+background-color:#006400;
+color: LightGray;"> </p>
+
+<p id="message4"> </p>
+<p id="message5" style="font-style: bold; color:red;"> </p>
+<p id="message6"> </p>
+
+<p id="message7"> </p>
+<p id="message8"> </p>
+<p id="message9"> </p>
+<h4></h4>
+<p id="message10"> </p>
+<h4></h4>
+<p id="message11"> </p>
+<p id="message11"> </p>
+
+
+
+<p id="message12"> </p>
+<p id="message13"> </p>
+<p id="message14"> </p>
+
+<p id="message15"> </p>
+
+<p id="message16"> </p>
+
+<p id="message17"> </p>
+<p id="message18"> </p>
+<p id="message19"> </p>
+
+<p id="message20"> </p>
+
+<p id="message21"> </p>
+<p id="message22"> </p>
+<p id="message23"> </p>
+
+<p id="message24"> </p>
+
+<p id="message25"> </p>
+
+<p id="message26"> </p>
+
+<p id="message27"> </p>
+
+<p id="message28"> </p>
+
+<p id="message29"> </p>
+
+
+<p id="message30"> </p>
+
+<p id="message31"> </p>
+
+
+<p id="message32"> </p>
+
+<p id="message33"> </p><p id="message34"> </p>
+<p id="message35"> </p>
+
+
+<script>
+
+//AND , OR , XOR , NOT
+
+/*
+Buffer
+INPUT	OUTPUT
+A	Q
+0	0
+1	1
+
+NOT 
+INPUT	OUTPUT
+A	Q
+0	1
+1	0
+
+AND
+INPUT	OUTPUT
+A	B	Q
+0	0	0
+0	1	0
+1	0	0
+1	1	1
+
+
+OR
+INPUT	OUTPUT
+A	B	Q
+0	0	0
+0	1	1
+1	0	1
+1	1	1
+
+NAND
+INPUT	OUTPUT
+A	B	Q
+0	0	1
+0	1	1
+1	0	1
+1	1	0
+
+
+NOR
+INPUT	OUTPUT
+A	B	Q
+0	0	1
+0	1	0
+1	0	0
+1	1	0
+
+XOR
+INPUT	OUTPUT
+A	B	Q
+0	0	0
+0	1	1
+1	0	1
+1	1	0
+
+
+XNOR
+INPUT	OUTPUT
+A	B	Q
+0	0	1
+0	1	0
+1	0	0
+1	1	1
+
+
+
+
+Operator	Name	Description
+
+
+&	AND	Sets each bit to 1 if both bits are 1
+
+
+|	OR	Sets each bit to 1 if one of two bits is 1
+
+
+
+^	XOR	Sets each bit to 1 if only one of two bits is 1
+
+
+~	NOT	Inverts all the bits
+
+
+<<	Zero fill left shift	Shifts left by pushing zeros in from the right and let the leftmost bits fall off
+
+
+>>	Signed right shift	Shifts right by pushing copies of the leftmost bit in from the left, and let the rightmost bits fall off
+
+
+>>>	Zero fill right shift	Shifts right by pushing zeros in from the left, and let the rightmost bits fall off
+
+
+
+
+
+
+Examples
+Operation	Result	Same as	Result
+5 & 1	1	0101 & 0001	 0001
+5 | 1	5	0101 | 0001	 0101
+~ 5	10	 ~0101	 1010
+5 << 1	10	0101 << 1	 1010
+5 ^ 1	4	0101 ^ 0001	 0100
+5 >> 1	2	0101 >> 1	 0010
+5 >>> 1	2	0101 >>> 1	 0010
+
+
+
+
+
+
+
+
+
+
+
+
+
+JavaScript Uses 32 bits Bitwise Operands
+JavaScript stores numbers as 64 bits floating point numbers, but all bitwise operations are performed on 32 bits binary numbers.
+
+Before a bitwise operation is performed, JavaScript converts numbers to 32 bits signed integers.
+
+After the bitwise operation is performed, the result is converted back to 64 bits JavaScript numbers.
+
+The examples above uses 4 bits unsigned binary numbers. Because of this ~ 5 returns 10.
+
+Since JavaScript uses 32 bits signed integers, it will not return 10. It will return -6.
+
+00000000000000000000000000000101 (5)
+
+11111111111111111111111111111010 (~5 = -6)
+
+A signed integer uses the leftmost bit as the minus sign.
+
+
+
+Bitwise AND
+When a bitwise AND is performed on a pair of bits, it returns 1 if both bits are 1.
+
+One bit example:
+Operation	Result
+0 & 0	0
+0 & 1	0
+1 & 0	0
+1 & 1	1
+4 bits example:
+Operation	Result
+1111 & 0000	0000
+1111 & 0001	0001
+1111 & 0010	0010
+1111 & 0100	0100
+Bitwise OR
+When a bitwise OR is performed on a pair of bits, it returns 1 if one of the bits are 1:
+
+One bit example:
+Operation	Result
+0 | 0	0
+0 | 1	1 
+1 | 0	1
+1 | 1	1
+4 bits example:
+Operation	Result
+1111 | 0000	1111
+1111 | 0001	1111
+1111 | 0010	1111
+1111 | 0100	1111
+Bitwise XOR
+When a bitwise XOR is performed on a pair of bits, it returns 1 if the bits are different:
+
+One bit example:
+Operation	Result
+0 ^ 0	0
+0 ^ 1	1 
+1 ^ 0	1
+1 ^ 1	0 
+4 bits example:
+Operation	Result
+1111 ^ 0000	1111
+1111 ^ 0001	1110
+1111 ^ 0010	1101
+1111 ^ 0100	1011
+JavaScript Bitwise AND (&)
+Bitwise AND returns 1 only if both bits are 1:
+
+Decimal	Binary
+5	00000000000000000000000000000101
+1	00000000000000000000000000000001
+5 & 1	00000000000000000000000000000001 (1)
+Example
+var x = 5 & 1;
+JavaScript Bitwise OR (|)
+Bitwise OR returns 1 if one of the bits are 1:
+
+Decimal	Binary
+5	00000000000000000000000000000101
+1	00000000000000000000000000000001
+5 | 1	00000000000000000000000000000101 (5)
+Example
+var x = 5 | 1;
+JavaScript Bitwise XOR (^)
+Bitwise XOR returns 1 if the bits are different:
+
+Decimal	Binary
+5	00000000000000000000000000000101
+1	00000000000000000000000000000001
+5 ^ 1	00000000000000000000000000000100 (4)
+Example
+var x = 5 ^ 1;
+JavaScript Bitwise NOT (~)
+Decimal	Binary
+5	00000000000000000000000000000101
+~5	11111111111111111111111111111010 (-6)
+Example
+var x = ~5;
+JavaScript (Zero Fill) Bitwise Left Shift (<<)
+This is a zero fill left shift. One or more zero bits are pushed in from the right, and the leftmost bits fall off:
+
+Decimal	Binary
+5	00000000000000000000000000000101
+5 << 1	00000000000000000000000000001010 (10)
+Example
+var x = 5 << 1;
+JavaScript (Sign Preserving) Bitwise Right Shift (>>)
+This is a sign preserving right shift. Copies of the leftmost bit are pushed in from the left, and the rightmost bits fall off:
+
+Decimal	Binary
+-5	11111111111111111111111111111011
+-5 >> 1	11111111111111111111111111111101 (-3)
+Example
+var x = -5 >> 1;
+JavaScript (Zero Fill) Right Shift (>>>)
+This is a zero fill right shift. One or more zero bits are pushed in from the left, and the rightmost bits fall off:
+
+Decimal	Binary
+5	00000000000000000000000000000101
+5 >>> 1	00000000000000000000000000000010 (2)
+Example
+var x = 5 >>> 1;
+Binary Numbers
+Binary numbers with only one bit set is easy to understand:
+
+Binary Representation	Decimal value
+00000000000000000000000000000001	1
+00000000000000000000000000000010	2
+00000000000000000000000000000100	4
+00000000000000000000000000001000	8
+00000000000000000000000000010000	16
+00000000000000000000000000100000	32
+00000000000000000000000001000000	64
+Setting a few more bits reveals the binary pattern:
+
+Binary Representation	Decimal value
+00000000000000000000000000000101	5 (4 + 1)
+00000000000000000000000000001101	13 (8 + 4 + 1)
+00000000000000000000000000101101	45 (32 + 8 + 4 + 1)
+JavaScript binary numbers are stored in two's complement format.
+
+This means that a negative number is the bitwise NOT of the number plus 1:
+
+Binary Representation	Decimal value
+00000000000000000000000000000101	5
+11111111111111111111111111111011	-5
+00000000000000000000000000000110	6
+11111111111111111111111111111010	-6
+00000000000000000000000000101000	40
+11111111111111111111111111011000	-40
+Converting Decimal to Binary
+Example
+function dec2bin(dec){
+  return (dec >>> 0).toString(2);
+}
+Converting Binary to Decimal
+Example
+function bin2dec(bin){
+  return parseInt(bin, 2).toString(10);
+}
+
+
+
+
+*/
+
+var number1=0;
+var number2=0;
+var number3=1;
+var number4=1;
+
+
+var number5 = 5;
+
+
+var andgateoutput = number3 & number4;
+var orgateoutput = number1 | number3;
+var xorgateoutput = number3 ^ number1;
+var notgateoutputnumber1 = ~number1;
+var notgateoutputnumber4 = ~number4;
+var notgateoutputnumber5 = ~number5 + 1;
+
+message1.innerHTML = "AND OPERATOR ON   "+number3+"  and "+number4+ "  RESULT is   "+ andgateoutput;
+message2.innerHTML = "OR OPERATOR ON   "+number1+"  and "+number3+ "  RESULT is  "+ orgateoutput;
+message3.innerHTML = "XOR OPERATOR ON   "+number3+"  and "+number1+ "  RESULT is  "+ xorgateoutput;
+
+
+message4.innerHTML = "NOT OPERATOR ON   "+number5+" is "+notgateoutputnumber5+ "  AND ON "+number4+" without adding 1 to make it the actual negative number is  "+notgateoutputnumber4+"";
+
+//a positive number , not applied, turns to negative.
+//we need to add 1 to this number to test this.
+
+
+
+//Bit Shifting
+
+//Right Shift Divides By 2
+//Left Shift Multiplies By 2
+
+
+
+/*
+Base 10 (1000 bytes)
+In the International System of Units (SI) the prefix kilo means 1000 (103); therefore, one kilobyte is 1000 bytes. The unit symbol is kB.
+
+This is the definition recommended by the International Electrotechnical Commission (IEC).[2] This definition, and the related definitions of the prefixes mega (1000000), giga (1000000000), etc., are most commonly used for data transfer rates in computer networks, internal bus, hard drive and flash media transfer speeds, and for the capacities of most storage media, particularly hard drives,[3] flash-based storage,[4] and DVDs. It is also consistent with the other uses of the SI prefixes in computing, such as CPU clock speeds or measures of performance.
+
+The IEC 80000-13 standard uses the term 'byte' to mean eight bits (1 B = 8 bit). Therefore, 1 kB = 8000 bit. One thousand kilobytes (1000 kB) is equal to one megabyte (1 MB), where 1 MB is one million bytes.
+
+
+Base 2 (1024 bytes)
+The kilobyte has traditionally been used to refer to 1024 bytes (210 B), a usage still common.[5][6][7] The usage of the metric prefix kilo for binary multiples arose as a convenience, because 1024 is approximately 1000.[8]
+
+The binary interpretation of metric prefixes is still prominently used by the Microsoft Windows operating system.[9] Metric prefixes are also used for random-access memory capacity, such as main memory and CPU cache size, due to the prevalent binary addressing of memory.
+
+The binary meaning of the kilobyte for 1024 bytes typically uses the symbol KB, with an uppercase letter K. The B is often omitted in informal use. For example, a processor with 65,536 bytes of cache memory might be said to have "64 K" of cache. In this convention, one thousand and twenty-four kilobytes (1024 KB) is equal to one megabyte (1 MB), where 1 MB is 10242 bytes.
+
+In December 1998, the IEC addressed such multiple usages and definitions by creating prefixes such as kibi, mebi, gibi, etc., to unambiguously denote powers of 1024.[10] Thus the kibibyte, symbol KiB, represents 210  bytes = 1024 bytes. These prefixes are now part of the International System of Quantities. The IEC further specified that the kilobyte should only be used to refer to 1000 bytes.
+
+
+
+
+FOR NETWORKING USE BASE 10 DECIMAL.
+
+
+How Many Kilobytes per second in a Megabit per second?
+1 Kilobyte/sec is equal to (8 × Megabit/sec) / 1000.
+1 Megabit/s = 125 Kilobytes/sec.
+
+Mbps : Megabit per second (Mbit/s or Mb/s)
+kB/s : Kilobyte per second
+1 byte = 8 bits
+1 bit  = (1/8) bytes
+1 bit  = 0.125 bytes
+1 kilobyte = 10001 bytes
+1 megabit  = 10002 bits
+1 megabit  = (1000 / 8) kilobytes
+1 megabit  = 125 kilobytes
+1 megabit/second = 125 kilobytes/second
+1 Mbps = 125 kB/s
+
+
+
+
+*/
+
+
+
+
+
+
+
+var kilobits = 1000;
+var megabitstensvalue1 = 20;
+var megabitstensvalue2 = 10;
+var megabitstensvalue3 = 1;
+var twentyMegaBits = megabitstensvalue1*kilobits; 
+var tenMegaBits =  kilobits*10;//cant use shift, where we cant make power of 2 factor. ! so we directly multiply kilobits with the factor.
+var oneMegaBit = megabitstensvalue3*kilobits;//no right shift here, as 1 megabit=1024. so we just use kilobits again here.
+
+message5.innerHTML = twentyMegaBits;
+message6.innerHTML = tenMegaBits;
+message7.innerHTML = oneMegaBit;
+
+
+var twentymegabitstoKiloBytes = twentyMegaBits>>3;//20000 / (2 ^ 3) = 20000/8 =  2500
+var tenmegaBitsToKiloBytes = tenMegaBits>>3;
+var onemegaBitToKiloBytes = oneMegaBit>>3;
+
+
+
+message8.innerHTML = "20MBits = 2500 KiloBytes  , our answer "+twentymegabitstoKiloBytes;
+message9.innerHTML = "10Mbits = 1250 Kilobytes , our answer  "+tenmegaBitsToKiloBytes;
+message10.innerHTML = "1MBits = 125 Kilobytes , our answer "+onemegaBitToKiloBytes;
+
+
+
+//while shifting, just make sure that the number you write is the factor of power of 2 !
+//1MBits = 128 Kilobytes
+//10Mbits = 1280 Kilobytes
+//20MBits = 2560 KiloBytes
+
+
+//Converting Decimal to Binary
+//Example
+function dec2bin(dec){
+  return (dec >>> 0).toString(2);
+}
+//Converting Binary to Decimal
+//Example
+function bin2dec(bin){
+  return parseInt(bin, 2).toString(10);
+}
+
+message12.innerHTML = dec2bin(4);
+message13.innerHTML = bin2dec(100);
+
+
+//dec2oct
+function dec2oct(dec){
+  return (dec >>> 0).toString(8);
+}
+
+//oct2dec
+function oct2dec(oct){
+  return parseInt(oct, 8).toString(10);
+}
+
+message14.innerHTML = dec2oct(20);
+message15.innerHTML = oct2dec(24);
+
+
+//dec2hex
+function dec2hex(dec){
+  return (dec >>> 0).toString(16);
+}
+
+//hex2dec
+function hex2dec(hex){
+  return parseInt(hex, 16).toString(10);
+}
+message16.innerHTML = dec2hex(10);
+message17.innerHTML = dec2hex(11);
+message18.innerHTML = dec2hex(12);
+message19.innerHTML = dec2hex(13);
+message20.innerHTML = dec2hex(14);
+message21.innerHTML = dec2hex(15);
+message22.innerHTML = dec2hex(16);
+
+
+
+message23.innerHTML = hex2dec("A");
+message24.innerHTML = hex2dec("B");
+message25.innerHTML = hex2dec("C");
+message26.innerHTML = hex2dec("D");
+message27.innerHTML = hex2dec("E");
+message28.innerHTML = hex2dec("F");
+message30.innerHTML = hex2dec("10");
+
+
+
+message31.innerHTML =dec2oct(8);
+message32.innerHTML =hex2dec(8);
+message33.innerHTML =oct2dec(10);
+message34.innerHTML =bin2dec(1000);
+
+
+
+</script>
+</body>
+</html>

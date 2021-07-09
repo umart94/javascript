@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>OptionalArguments</title>
+<link rel="stylesheet" type="text/css" media="all" href="styles/styles.css" />
+</head>
+<body style="background-color:white">
+
+<h1 style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">OptionalArguments</h1>
+
+<h3></h3>
+<p id="message1" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+<p id="message2" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+<p id="message3" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+<p id="message4" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+
+<p id="message5" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+
+
+<p id="message6" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+
+
+<p id="message7" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+
+
+
+<p id="message8" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+
+
+
+<p id="message9" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+
+
+
+
+<p id="message10" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+
+
+
+
+<p id="message11" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+
+
+
+
+
+<p id="message12" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+
+
+
+<p id="message13" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+<p id="message14" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+<div id="message"></div>
+
+<script src="recursion.js"></script>
+<script>
+/*
+we can pass either the name of the div in plaintext
+or use document.getElementById
+
+0 and 2 indicate the start and ending index of the array we passed.
+*/
+
+
+
+
+//without object literal , use module 2a
+//Lib.Output.Write(["Hello","world",3,"from","JavaScript","Language"],document.getElementById("message"),0,2,"#009688");
+
+//with object literal , use module2b.js
+//parameters can be listed in any order we like, and omit those we do not need.
+//check that if string is passed. so that we create conditions for each type of var passed.. string or object.
+
+/*Lib.Output.Write({
+		msg: ["Optional","Arguments","JavaScript","Modules"," And Objects"],
+		end: 5,
+		color: "#009688"});
+
+*/
+
+
+
+
+
+
+
+
+//Lib.Output.Write(["Hello","world",3,"from","JavaScript","Language"],document.getElementById("message"),3,5,"#b0bec5");
+
+
+
+
+
+//each array , can have sub-arrays
+
+var n = [1,2,3],4,
+		[
+			[5,6],
+			7
+		],
+		[8,9]
+];
+
+Lib.Array.Recurse(n);
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

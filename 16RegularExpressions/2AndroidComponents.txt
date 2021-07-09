@@ -1,0 +1,50 @@
+//Android App Runs On Linux - and Uses Dalvik Virtual Machine
+//Integrated Browser Based On WebKit Engine
+//OpenGL ES
+
+//Android app runs in its own sandbox and Linux process
+//Applications consist of Components , Manifest File , And Resources
+
+-------------ACTIVITIES----------------------------
+Activity is a single screen
+//when a new activity starts , the older is pushed onto the back stack.
+
+----------SERVICES---------------------------------
+//Android Services perform long running operations in the background
+//Does not contain a user interface
+//useful for things like network operations , playing music, etc.
+//AN ANDROID SERVICE RUNS INDEPENDENTLY OF THE COMPONENT THAT CREATED IT
+//if you close an android activity, the service will still be running
+//services can be bound to by other application components
+
+---------------CONTENT PROVIDERS--------------------
+used To store and retrieve data and make it accessible to all applications
+are the only way to share data across applications
+exposes a public URI that uniquely identifies as its data set
+Data is exposed as a simple table on a database model
+providers in android are : e.g. contacts , media etc.
+
+
+---------------BROADCAST RECEIVERS --------------------------
+A component that responds to system-wide broadcast announcements
+Examples include when the screen turns off , the battery is low etc.
+Broadcast receivers contain no USER INTERFACE
+they can create status bar notifications to alert the user
+
+
+-------------ANDROID MANIFEST FILE ------------------
+AndroidManifest.xml
+purpose is to give android system information about your application
+describes components, and lists the permissions required to run your application
+
+before you install an app.. the user needs to allow permissions to the app to run it
+declares mintargets and maxtargets for android sdks to be used in app.
+
+Android also has the mergedManifest : https://developer.android.com/studio/build/manifest-merge#top_of_page
+Your APK file can contain just one AndroidManifest.xml file, but your Android Studio project may contain several—provided by the main source set, build variants, and imported libraries. So when building your app, the Gradle build merges all manifest files into a single manifest file that's packaged into your APK.
+
+The manifest merger tool combines all XML elements from each file by following some merge heuristics and by obeying merge preferences that you have defined with special XML attributes.
+-------------ANDROID MANIFEST FILE ------------------
+//entire lifetime -- happens between the first call to onCreate(Bundle) through to a single final call to onDestroy()
+//visible lifetime -- happens between a call to onStart() until a corresponding call to onStop().
+//foreground lifetime -- happens between a call to onResume() until a corresponding call to onPause()

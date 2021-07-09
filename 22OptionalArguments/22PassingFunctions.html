@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Passing Functions</title>
+<link rel="stylesheet" type="text/css" media="all" href="styles/styles.css" />
+</head>
+<body style="background-color:white">
+
+<h1 style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">Passing Functions</h1>
+
+<h3></h3>
+<div id="message"></div>
+
+<script src="functionpassing.js"></script>
+<script>
+
+
+
+//each array , can have sub-arrays
+
+var n = [
+		[1,2,3],
+		4,
+		[
+			[5,6],
+			7
+		],
+		[8,9]
+];
+
+var sum = 0;
+
+var e = 0;
+
+Lib.Array.Recurse( n, function(x) {
+	e++;
+	sum = sum + x; 
+	} );
+
+
+document.getElementById("message").innerHTML += 
+"<p>Array Sum = "+ sum + "</p>" +
+"<p> Array Average = " + (sum/e) + "</p>";
+
+</script>
+
+</body>
+</html>

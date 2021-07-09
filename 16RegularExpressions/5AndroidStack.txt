@@ -1,0 +1,155 @@
+1. Derivative Work Under Same License : NO
+
+
+2. Files must contain all information about changes , patents and copyrights ? 
+
+2.1 YES -> APACHE2.0
+2.2 NO -> MIT,BSD 
+
+-------------------------------
+ANDROID OPERATING SYSTEM STACK
+
+the blue part is java
+and the green part is the native c/c++ code
+
+----------------------------
+android is based on linux
+
+linux(licensed on gpl terms) is free,secure, has a community
+
+a mobile platform that is able to run on many different devices
+
+manufacturers have drivers for wifi,camera etc. on linux
+so android team chose linux
+
+-------------------------
+NATIVE C/C++ PORTION OF ANDROID STACK
+-------------------------
+
+The Lowest Layer is : 
+
+
+
+#1 - Linux Kernel Space
+---------------------------------------
+Entire Android Stack ~ 300 MegaBytes total size
+Linux Kernel (not part of aosp) ~ 3MegaBytes
+
+android uses the linux kernel , not the kernel distribution
+
+we don't have windowing
+user accounts
+
+lot of things from linux are stripped out
+
+
+LINUX GPL License
+when you derive, you have to put code back to the community. (disputes)
+Peace Made !! wohoo !! peace on you toooo !!!!!!!!
+
+
+
+kernel responsible for device driver. radio , wifi device etc. bluetooth (kernel manages this through the device driver )
+
+kernel responsible for processes.
+
+each Android App Is a Seperate Linux Process
+---------------------------------
+
+
+
+
+#2 - Native Layer (it has *nix tools, daemons, libs and HAL
+---------------------------------
+Called User Space (in linux terms)
+
+
+HAL : Hardware Abstraction Layer
+its unique to linux
+
+in a linux desktop pc, we have a device driver for a camera
+
+App e.g. CameraApp is in UserApps ... it needs access to the device driver for camera
+that is inside the linux kernel to be able to work and capture images. (driver for hardware)
+
+make configure and make install
+
+in android we have standardized interfaces.
+these interfaces WILL NOT CHANGE between Samsung,HTC,Motorola
+
+Each Manufacturer will implement link between HAL and the Device Driver/Hardware for the Device.
+
+we also have other native libraries.
+
+open source (best of all of these compiled) codecs,video audio , openssl , opengl -> native libs
+
+
+android does not have libc , android has bionic
+
+WE WANT TO KEEP THE USER SPACE GPL FREE
+
+Native Daemons are native pieces of code like services that are running
+init toolbox (standard linux tools , has the init parent process)
+-----------------------------------
+
+
+#3 - Dalvik Runtime
+------------------------------------
+
+Java Virtual Machine compiled specifically for Android
+Java tools are free but the JVM is not free.
+
+dalvik is optimized for mobile experience.
+
+Constraint - form factor, cpu and ram constraints.
+Constraint - Battery Power.
+
+Power Consumption - Intel vs AMD.
+--------------------------------------------
+END NATIVE C/C++ PORTION OF ANDROID STACK.
+---------------------------------------
+
+
+--------------------------------------
+Start - The Java Portions of Android Stack
+------------------------------------
+#4 - Application Layer
+
+4.1 Java Libraries - java.x packages.
+apache harmony project
+
+
+4.2 System Services - thread associated with them - 50-60 services.
+wifi service
+telephony service
+audio,media etc.
+
+4.3 Android Framework Libraries
+they aren't running, but the code loads them
+
+
+User App -> Libraries Loaded -> Use Services
+
+------------------------------------------------
+
+#5 System Apps and User Apps
+
+Self-contained
+
+app is a file
+.apk application package.
+
+user apps are downloadable.
+
+system apps come with the phone e.g calculator,calendar etc.
+
+---------------------------
+Dalvik Code + Resources + App Manifest + Signature = Application Package (APK)
+
+-----------------------
+
+
+
+
+
+

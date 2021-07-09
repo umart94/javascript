@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Removing elements</title>
+<link rel="stylesheet" type="text/css" media="all" href="styles/styles.css" />
+</head>
+<body>
+
+<header>
+	<h1>An Introduction to JavaScript</h1>
+	<p>Removing Elements</p>
+</header>
+
+<article>
+
+	<p id="p1">My <strong>first</strong> paragraph.</p>
+	
+	<p id="p2">My <strong>second</strong> paragraph.</p>
+<!--
+
+write in chrome dev tools.
+var p1 = document.getElementById("p1");
+var p2 = document.getElementById("p2");
+p1.parentNode.removeChild(p1);
+
+
+var article = document.getElementsBytagName("article")[0];
+
+while(article.childNodes.length){
+	article.removeChild(article.lastChild);
+}
+
+
+article.replaceChild(p2,p1);
+-->
+</article>
+
+</body>
+</html>

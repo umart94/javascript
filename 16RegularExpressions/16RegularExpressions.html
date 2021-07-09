@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Regular Expressions</title>
+<!-- <link rel="stylesheet" type="text/css" media="all" href="styles/styles.css" /> -->
+</head>
+<script src="jQuery-3.5.1.js"></script>
+<body style="background-color:white">
+
+<form>
+  <p>Enter an email address:</p>
+  <input id='email'>
+  <button type='submit' id='validate'>Validate!</button>
+</form>
+
+<h2 id='result'></h2>
+
+<h1>Regular Expressions</h1>
+
+<h3></h3>
+<p id="message1" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+<h3></h3>
+<p id="message2" style = "
+font-family:verdana; 
+background-color:#006400;
+color: LightGray;"> </p>
+
+
+
+<h3></h3>
+<p id="message3" style = "
+font-family:verdana; 
+background-color:#006400;
+color: LightGray;"> </p>
+
+<p id="message4"> </p>
+<p id="message5" style="font-style: bold; color:red;"> </p>
+<p id="message6"> </p>
+
+<p id="message7"> </p>
+<p id="message8"> </p>
+<p id="message9"> </p>
+<h4></h4>
+<p id="message10"> </p>
+<h4></h4>
+<p id="message11"> </p>
+
+
+
+
+<p id="message12"> </p>
+<p id="message13"> </p>
+<p id="message14"> </p>
+
+<p id="message15"> </p>
+
+<p id="message16"> </p>
+
+<p id="message17"> </p>
+<p id="message18"> </p>
+<p id="message19"> </p>
+
+<p id="message20"> </p>
+
+<p id="message21"> </p>
+<p id="message22"> </p>
+<p id="message23"> </p>
+
+<!-- dont use <image> use <img></img>-->
+<img id="sameoriginimage"> </img>
+<script>
+//language for describing patterns in strings
+//JS supports perl compatible regular expressions (PCRE)
+
+
+var regExEmailAddress = "/^[a-z0-9._%-]+@[a-z0-9.-]+\.[a-z]{2,4}$/";
+//https://regex101.com/
+
+/*
+every regEx starts with forward slash ends with back slash
+^ caret symbol indicates the start of regex
+$ symbol indicates end
+
+/^YOUR_PATTERN_HERE$/
+
+means we want to match the full pattern from start to finish
+
+
+anything in square brackets means that these characters are permissible.
+[a-z0-9._%-]
+alphabets,numbers,the individual characters . _ % - ( enclosed in square brackets)
+
+following plus sign indicates that we can have one or more of those characters.
+
+@ symbol is actual email character, anything that is exactly a character and not in pattern should be entered as it is.
+
+if we do not want it to be the actual character, and included in the pattern then escape the character with a backslash.
+
+e.g for domain we use \.[a-z]{2,4}$/
+
+{2,4} between 2 and 4 of these characters 2,3 or 4. (com,edu,pk)
+
+the problem is that there are longer top level domains as well
+e.g 
+
+.museum
+.paris
+
+so for every email address or website address, we first need to check whether the domain exists or not.
+this can be done by :
+
+dnsjava library.
+Java : 
+The name servers of a domain are stored in the NS record. If you are able to get the MX record finding the name servers is no different.
+
+Borrowing the example given in dnsjava documentation for listing the MX records:
+
+Record [] records = new Lookup("gmail.com", Type.NS).run();
+for (int i = 0; i < records.length; i++) {
+    NSRecord ns = (NSRecord) records[i];
+    System.out.println("Nameserver " + ns.getTarget());
+}
+
+JavaScript : 
+
+I know this question was asked a very long time ago, but I figured I'd offer a more recent answer.
+
+DNS over HTTPS (DoH)
+You can send DNS queries over HTTPS to DNS resolvers that support it. The standard for DOH is described in RFC 8484.
+
+This is a similar thing to what all the other answers suggest, only that DoH is actually the DNS protocol over HTTPS. It's also a "proposed" Internet standard and it's becoming quite popular. For example, some major browsers either support it or have plans to support it (Chrome, Edge, Firefox), and Microsoft is in the process of building it into their operating system.
+
+One of the purposes of DoH is:
+
+allowing web applications to access DNS information via existing browser APIs in a safe way consistent with Cross Origin Resource Sharing (CORS)
+
+There's an open source tool made especially for doing DNS lookups from web applications called dohjs. It does DNS over HTTPS (DoH) wireformat queries as described in RFC 8484. It supports both GET and POST methods.
+
+Full disclosure: I am a contributor to dohjs.
+
+DNS over HTTPS JSON APIs
+If you don't want to bother with DNS wireformat, both Google and Cloudflare offer JSON APIs for DNS over HTTPS.
+
+Google's endpoint: https://dns.google/resolve?
+Google's JSON API docs: https://developers.google.com/speed/public-dns/docs/doh/json
+Cloudflare's endpoint: https://cloudflare-dns.com/dns-query?
+Cloudflare's JSON API docs: https://developers.cloudflare.com/1.1.1.1/dns-over-https/json-format/
+Example Javascript code to lookup example.com with Google's JSON DOH API:
+
+var response = await fetch('https://dns.google/resolve?name=example.com');
+var json = await response.json();
+console.log(json);
+Examples from the RFC for DOH GET and POST with wireformat
+Here are the examples the RFC gives for both GET and POST (see https://tools.ietf.org/html/rfc8484#section-4.1.1):
+
+GET example:
+
+The first example request uses GET to request "www.example.com".
+
+:method = GET
+:scheme = https
+:authority = dnsserver.example.net
+:path = /dns-query?dns=AAABAAABAAAAAAAAA3d3dwdleGFtcGxlA2NvbQAAAQAB
+accept = application/dns-message
+
+POST example:
+
+The same DNS query for "www.example.com", using the POST method would be:
+
+:method = POST
+:scheme = https
+:authority = dnsserver.example.net
+:path = /dns-query
+accept = application/dns-message
+content-type = application/dns-message
+content-length = 33
+
+<33 bytes represented by the following hex encoding> 00 00 01 00 00 01 00 00 00 00 00 00 03 77 77 77 07 65 78 61 6d 70 6c 65 03 63 6f 6d 00 00 01 00 01
+
+Other places to send DOH queries
+You can find a list of some public DNS resolvers that support DNS over HTTPS in a couple places:
+
+DNSCrypt has a long list of public DoH and DNSCrypt resolver on their Github, and a nice interactive version of the list at https://dnscrypt.info/public-servers/
+Wikipedia - comparison of public recursive nameservers
+List on Curl's wiki
+(short) list on dnsprivacy.org
+Of the above resources, I'd say that the list on Curl's wiki and the DNSCrypt list are are probably the most complete and the most frequently updated. Curl's page also includes a list of open source tools for DoH (servers, proxies, client libs, etc).
+
+
+--------------------
+
+
+
+in php there is a function checkdnsrr
+if (checkdnsrr('test.nl', 'A')) // or use ANY or for other see above link
+{
+    echo 'Domain exists';
+}
+else 
+{ 
+    echo 'Domain does not exist'; 
+} 
+
+ <?php 
+
+if (checkdnsrr('google.com', 'A')) // or use ANY or for other see above link
+{
+    echo 'Domain exists';
+}
+else 
+{ 
+    echo 'Domain does not exist'; 
+}
+
+?>
+//Output = Domain exists
+
+if (checkdnsrr('fakewebtesting.com', 'A')) // or use ANY or for other see above link
+{
+    echo 'Domain exists';
+}
+else 
+{ 
+    echo 'Domain does not exist'; 
+}
+
+?>
+  //Output = Domain does not exists
+  
+  
+
+
+----------------------
+
+to just check the website url :
+
+var request;
+if(window.XMLHttpRequest)
+    request = new XMLHttpRequest();
+else
+    request = new ActiveXObject("Microsoft.XMLHTTP");
+request.open('GET', 'http://www.mozilla.org', false);
+request.send(); // there will be a 'pause' here until the response to come.
+// the object request will be actually modified
+if (request.status === 404) {
+    alert("The page you are trying to reach is not available.");
+}
+
+
+
+
+jQuery :
+
+I found this worked in my scenario.
+
+The jqXHR.success(), jqXHR.error(), and jqXHR.complete() callback methods introduced in jQuery 1.5 are deprecated as of jQuery 1.8. To prepare your code for their eventual removal, use jqXHR.done(), jqXHR.fail(), and jqXHR.always() instead.
+
+$.get("urlToCheck.com").done(function () {
+  alert("success");
+}).fail(function () {
+   alert("failed.");
+});
+
+
+
+*/
+
+
+var string1=[0,1,2,3,4,5,6,7,8,9];
+var string2=string1.toString();
+message1.innerHTML = string2;
+
+var string3 = String(string2);
+var string4 = string3 +"";
+
+
+
+
+
+
+
+message3.innerHTML = "";
+message4.innerHTML = "";
+message5.innerHTML = "";
+message7.innerHTML = "";
+message8.innerHTML = "";
+
+var string8="aBcDeFGhIJklMnOpQrStuVwxYz";
+message9.innerHTML = "";
+message10.innerHTML = "";
+
+var string9=string8.concat(message2.innerHTML);
+message11.innerHTML = "";
+
+
+var string10 = "thisisasentiseniscise";
+message12.innerHTML = "";
+
+message13.innerHTML += "";
+message14.innerHTML = "";
+
+var string11 = string10.indexOf("is");//returns starting index or -1 if nothing returned
+message15.innerHTML = "";
+
+var string12 = string10.lastIndexOf("is");//18
+message16.innerHTML = "";
+
+var commaSeperatedString = "abcd,efgh,ijkl,mnop";
+message17.innerHTML = "";
+message18.innerHTML ="";
+
+
+var stringslice = "abcd,efgh,ijkl,mnop";
+message19.innerHTML = "";
+message20.innerHTML ="" ;
+
+var name="JS00012ProgrammingLanguage";
+message21.innerHTML = "";
+message21.style="color: green;";
+
+message22.innerHTML = "";
+
+function validateEmail(email) {
+  const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
+
+function validate() {
+  const $result = $("#result");
+  const email = $("#email").val();
+  $result.text("");
+
+  if (validateEmail(email)) {
+    $result.text(email + " This email address is valid");
+    $result.css("color", "green");
+  } else {
+    $result.text(email + " This email address is not valid");
+    $result.css("color", "red");
+  }
+  return false;
+}
+
+$("#validate").on("click", validate);
+
+var secondregex = "/Java\s*Script/ig";
+//I MEANS not case sensitive
+//g means global
+
+//another way to do this
+var type = "Java";
+
+//var regexpression = "/Java\s*Script/ig";
+
+//var regex= new RegExp("JavaScript","ig"); //(expression as string without the slashes, switches on the regex);
+var regex2 = new RegExp(type+"\s*ProgramminGLanguage","ig");
+//this object allows us to build regular expressions
+
+
+var regex3 = /(is not|is)/ig;
+
+var text = " is JavaProgrammiNgLAnGuAgE a programming  JavaProgrammiNgLanguage  language that JavaProgramminGlanguage works JavaProgrammingLanguage";
+var text2 = "JavaProgrammingLanguage";
+var text3 = "JavaProgramminGLanguage";
+var text4 = "JavaScript is not Java or Script. JavaScript is a language in its own right";
+message10.innerHTML += "Not case sensitive, returns ==== "+regex2.test(text);
+message11.innerHTML += "case sensitive version  wrong text "+regex2.test(text2);
+message12.innerHTML += "case sensitive version  right text "+regex2.test(text3);
+message13.innerHTML += text.search(regex2);//0 , return first character location
+message14.innerHTML += text.match(regex2);
+message15.innerHTML += text.split(regex2); // array of substrings split at regex.
+message16.innerHTML += text.replace(regex2,"Java"); // array of substrings split at regex.
+message17.innerHTML += text4.replace(regex3,"<mark>$1</mark>"); // matches, $1 parameter .. we can use many parameters $2,$3
+/*
+
+Modifiers
+Modifiers are used to perform case-insensitive and global searches:
+
+Modifier	Description
+g	Perform a global match (find all matches rather than stopping after the first match)
+i	Perform case-insensitive matching
+m	Perform multiline matching
+
+
+
+
+
+
+
+
+
+Brackets
+Brackets are used to find a range of characters:
+
+Expression	Description
+[abc]	Find any character between the brackets
+[^abc]	Find any character NOT between the brackets
+[0-9]	Find any character between the brackets (any digit)
+[^0-9]	Find any character NOT between the brackets (any non-digit)
+(x|y)	Find any of the alternatives specified
+
+
+
+
+
+
+
+
+
+
+Metacharacters
+Metacharacters are characters with a special meaning:
+
+Metacharacter	Description
+.	Find a single character, except newline or line terminator
+\w	Find a word character
+\W	Find a non-word character
+\d	Find a digit
+\D	Find a non-digit character
+\s	Find a whitespace character
+\S	Find a non-whitespace character
+\b	Find a match at the beginning/end of a word, beginning like this: \bHI, end like this: HI\b
+\B	Find a match, but not at the beginning/end of a word
+\0	Find a NULL character
+\n	Find a new line character
+\f	Find a form feed character
+\r	Find a carriage return character
+\t	Find a tab character
+\v	Find a vertical tab character
+\xxx	Find the character specified by an octal number xxx
+\xdd	Find the character specified by a hexadecimal number dd
+\udddd	Find the Unicode character specified by a hexadecimal number dddd
+
+*/
+
+
+
+
+
+
+
+
+/*
+Quantifiers
+Quantifier	Description
+
+n+	Matches any string that contains at least one n
+n*	Matches any string that contains zero or more occurrences of n
+n?	Matches any string that contains zero or one occurrences of n
+n{X}	Matches any string that contains a sequence of X n's
+n{X,Y}	Matches any string that contains a sequence of X to Y n's
+n{X,}	Matches any string that contains a sequence of at least X n's
+n$	Matches any string with n at the end of it
+^n	Matches any string with n at the beginning of it
+?=n	Matches any string that is followed by a specific string n
+?!n	Matches any string that is not followed by a specific string n
+
+*/
+
+</script>
+</body>
+</html>

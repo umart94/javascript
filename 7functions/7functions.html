@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>How to add JavaScript to your web page</title>
+<link rel="stylesheet" type="text/css" media="all" href="styles/styles.css" />
+</head>
+<body>
+
+<h1>FUNCTION WITH FOR LOOP TO CALCULATE FACTORIAL OF A NUMBER</h1>
+<p id="message"> </p>
+<p id="message2"> </p>
+<p id="message3"> </p>
+<p id="message4"> </p>
+<p id="message5"> </p>
+<script>
+var message = document.getElementById("message");
+var num = Number(prompt("Enter a Number : "));
+var output = 1;
+
+//function factorial_calculator(num){
+
+//if you return value of function to a variable , dont write the name of function
+var factorial = function (num){
+num = Number(num);
+if(num <  0 ){
+return null;
+}
+var f = 1;
+for(var i=2;i<=num;i++){
+	f = f * i;
+}
+return f;
+}
+
+
+var f = factorial;
+/*
+//output factorial message
+message.textContent = num +"! = "+ factorial_calculator(num);
+message2.textContent += num+1 +"! = "+ factorial_calculator(num+1);
+message3.textContent += num+2 +"! = "+ factorial_calculator(num+2);
+message4.textContent += "invalid" +"! = "+ factorial_calculator("Potato");
+message5.textContent += factorial_calculator(-1);
+
+*/
+
+message.textContent = num +"! = "+ f(num);
+message2.textContent += num+1 +"! = "+ f(num+1);
+message3.textContent += num+2 +"! = "+ f(num+2);
+message4.textContent += "invalid" +"! = "+ f("Potato");
+message5.textContent += f(-1);
+</script>
+</body>
+</html>

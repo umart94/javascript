@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>JavaScript Modules</title>
+<link rel="stylesheet" type="text/css" media="all" href="styles/styles.css" />
+</head>
+<body>
+
+<h1>Modules</h1>
+
+<div id="message">Messages will appear here</div>
+
+<script src="module.js"></script>
+<script>
+Lib.Output.Clear();
+Lib.Output.Write("This is my first message.");
+Lib.Output.$("This is my second message.");
+Lib.Output.SetColor("#C00");
+Lib.Output.$("Modules are great!");
+var x = Lib.Output.FormatMessage("test"); // this will fail
+Lib.Output.$(x);
+/*
+//anonymous functions dont have a name , they run immediately.
+/*
+functions and objects used in other programs.
+
+we also use libraries used by other developers.
+
+
+*/
+
+
+//return a function
+
+/*function CreateFunction(){
+
+		//local variable message. even though it is a local function and ends after this function
+		//since we use it in alert function, this code runs even after the function ends.
+		
+	var message = "I was created By CreateFunction()";
+	return function() { alert(message); }
+} 
+
+var f = CreateFunction();
+f();
+*/
+</script>
+</body>
+</html>

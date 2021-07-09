@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>OOP - Constructors</title>
+<link rel="stylesheet" type="text/css" media="all" href="styles/styles.css" />
+</head>
+<body style="background-color:white">
+
+<h1>String Functions</h1>
+
+<h3>an arbitrary random number :</h3>
+<p id="message1" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+<h3>The maximum is exclusive and the minimum is inclusive :</h3>
+<p id="message2" style = "
+font-family:verdana; 
+background-color:#006400;
+color: LightGray;"> </p>
+
+
+
+<h3>The maximum is inclusive and the minimum is inclusive :</h3>
+<p id="message3" style = "
+font-family:verdana; 
+background-color:#006400;
+color: LightGray;"> </p>
+
+<p id="message4"> </p>
+<p id="message5" style="font-style: bold; color:red;"> </p>
+<p id="message6"> </p>
+
+<p id="message7"> </p>
+<p id="message8"> </p>
+<p id="message9"> </p>
+<h4>Cryptographically Unsafe random numbers :</h4>
+<p id="message10"> </p>
+<h4><mark>Cryptographically Safe<mark> random numbers :</h4>
+<p id="message11"> </p>
+<script>
+/*
+an event is any user interaction with the web page.
+
+e.g
+hovering over an element
+clicking an element
+focusing a form field
+typing a character.
+submitting a form
+scrolling a page.
+resizing the window
+closing the page
+
+
+Step 1 : Event Registration
+
+1. IDENTIFY the element.
+2. Identify the action
+3. Register a handler.
+
+Step 2: Write an Event Handler
+It is a function that runs as soon as an event occurs
+when event handler is called it runs before browser is redirected to a new page.
+
+event handler function is passed an event object
+such as which element caused the event
+Step 2: Write an Event Handler
+1. a function
+2. passed an event object
+3. analyse the event object
+4. perform relevant actions
+
+Step 3: Perform further actions
+1. disable default actions
+handler function is called first, so cancel the default action
+
+we cannot cancel every single event
+common events can be cancelled
+
+also prevent event from bubbling up to its parent node.
+
+we can deregister it so it never runs again
+
+any number of events can be applied to same element
+
+register different event handlers for same element and event type
+
+
+
+we cannot guarantee the order in which event handlers are executed.
+
+example
+
+element1 has child element element2
+click event handler to both
+if we click element2 should element1 handler also be called
+this is exactly what the browser does
+the event is passed ( bubbled up ) through dom tree upto the element1 , and runs any event handlers applied to parent node
+
+in this case
+
+element 2 event handler will run first before element 1 event handler.
+we can prevent bubbling from occuring but it is quite useful
+
+in case there are multiple child elements
+we can register a single event handler on the parent element
+
+suppose there are lot of child elements
+1 child element was clicked
+this will be bubbled up
+and the event handler of parent element will be called
+this will go to event object and detect which element called the click event.
+
+
+so we have single event handler for parent element , and detected from which child element this click event was called.
+
+
+*/
+</script>
+</body>
+</html>

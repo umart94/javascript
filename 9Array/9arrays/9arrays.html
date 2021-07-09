@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>How to add JavaScript to your web page</title>
+<link rel="stylesheet" type="text/css" media="all" href="styles/styles.css" />
+</head>
+<body>
+
+<h1>JavaScript Arrays</h1>
+<h1>/******** MUTABLE ARRAYS ********************/</h1>
+<p id="message"> </p>
+<p id="message2"> </p>
+<p id="message3"> </p>
+<h1>=========================IMMMMMMMMMMUTABLEEEEEEEEEE [ES6 version ]===========</h1>
+<p id="message4"> </p>
+<p id="message5" style="font-style: bold; color:red;"> </p>
+<p id="message6"> </p>
+
+<p id="message7"> </p>
+<script>
+/*
+Arrays are list-like objects whose prototype has methods to perform traversal and mutation operations. Neither the length of a JavaScript array nor the types of its elements are fixed. Since an array's length can change at any time, and data can be stored at non-contiguous locations in the array, JavaScript arrays are not guaranteed to be dense; this depends on how the programmer chooses to use them. In general, these are convenient characteristics; but if these features are not desirable for your particular use, you might consider using typed arrays.
+
+Arrays cannot use strings as element indexes (as in an associative array) but must use integers. Setting or accessing via non-integers using bracket notation (or dot notation) will not set or retrieve an element from the array list itself, but will set or access a variable associated with that array's object property collection. The array's object properties and list of array elements are separate, and the array's traversal and mutation operations cannot be applied to these named properties.
+
+
+
+/********************************** MUTABLE ARRAYS ***********************************************************/
+var v1=10,v2=20,v3=30,v4=40,v5=50;
+var mean = (v1+v2+v3+v4+v5)/5;
+message.textContent = mean;
+
+var arrayOfNums = [10,20,30,40,50];//Single Dimension Array of Undefined Length, That will Only Contain Integers
+//or
+/*v[0] = 11;
+v[1]=21;
+v[2]=31;
+v[3]=41;
+v[4]=51;
+v[5]=61;
+*/
+
+
+//properties of arrays
+message2.textContent = "Length of Array (arrayOfNums) is " + arrayOfNums.length;
+
+var items = arrayOfNums.length;
+var total = 0;
+for(var i=0;i< items;i++){
+total+=arrayOfNums[i];
+}
+
+var mean2 = total / items; //REDECLARATION OF SAME VARIABLE WITH SAME NAME ! change it to something else like mean2
+console.log("Mean of numbers in arrayOfNums is " + mean2);
+
+
+//push() appends one or more items to the end of the arrayOfNums
+arrayOfNums.push(60);
+//identical to arrayOfNums[5] = 60 or arrayOfNums[arrayOfNums.length] = 60; 
+console.log(arrayOfNums);
+console.log("length of array after push "+arrayOfNums.length);
+
+//pop() removes one or more items to the end of the arrayOfNums
+arrayOfNums.pop();
+//identical to arrayOfNums[5] = undefined or arrayOfNums[arrayOfNums.length] = undefined; 
+console.log(arrayOfNums);
+
+console.log("length of array after pop "+arrayOfNums.length);
+
+
+//unshift method adds one or more item to the start of the arrayOfNums
+arrayOfNums.unshift(60);
+console.log(arrayOfNums);
+console.log("length of array after unshift "+arrayOfNums.length);
+
+//The unshift() method adds one or more elements to the beginning of an array and returns the new length of the array.
+
+//Note that with the function's Purpose you have to see what it returns as well
+//function returns "THE LENGTH OF THE ARRAY" not "ARRAY AFTER 1 item is added to it..
+
+
+
+
+
+//shift returns the first item of the array, and removes it... and shrinks array by 1 item
+arrayOfNums.shift();
+console.log(arrayOfNums);
+var printkrdearray = arrayOfNums.toString();
+message3.textContent+="length of array after unshift "+arrayOfNums.length + "And the Previous Array that is Mutable === "+printkrdearray;
+
+/*
+Array has several mutable operations - push, pop, splice, shift, unshift, reverse and sort. Using them is usually causing side effects and bugs that are hard to track.
+*/
+/********************************** MUTABLE ARRAYS ***********************************************************/
+
+
+
+
+
+
+
+
+/********************************** IMMUTABLE ARRAYS ***********************************************************/
+//if we want to keeep an array arrayOfNums, or any data structure or any variable IMMUTABLE I.e-resize
+//DO NOT CHANGE IT'S ACTUAL DEFINED VALUE ANYWHERE, THROUGHOUT the program.. then we need to make copies of that variable ... (use slice,use new Array etc)
+
+//If you want instead , for the function to modify the actual array, then use the functions as is.
+
+//in above portion we used functions on the actual array so that the values were changed
+// now we want to , instead create a new array each time.. while keeping the actual array defined above unchanged..
+
+//in short.. just make another copy of that array. and perform operations on copies of it.. instead of actual array
+
+/*
+var foobarArray = Array.from(arrayOfNums);
+*/
+
+//this doesnt cover shallow vs deep copy, and detecting if the variable is object,array,variable etc. read more abt immutability !
+//var foobarArray = Array.from(arrayOfNums);//CREATES MUTABLE COPY !!!!
+
+
+
+
+/*===============================================IMMMMMMMMMMUTABLEEEEEEEEEE [ES6 version ]========================================*/
+
+
+
+/*var foobarArray = [...arrayOfNums];
+foobarArray.push(1234567);//DONT DO IT SEPERATELY.. WONT WORK
+*/
+
+var foobarArray = [...arrayOfNums];
+foobarArray.push(1234567);
+
+var prev = arrayOfNums.toString();
+var nextarray = foobarArray.toString();
+message4.textContent = " Previous Array..     "+prev+ "  length of Previous array arrayOfNums Before    "+arrayOfNums.length;
+message5.textContent+=" Array after Push     "+nextarray+ "  length of New Array foobarArray after push     "+foobarArray.length;
+message6.textContent = " Previous Array..     "+prev+ "  length of Previous array arrayOfNums After    "+arrayOfNums.length;
+
+
+/*message5.textContent+=" length of array after unshift "+foobarArray+ "  length of array after unshift   "+foobarArray.length;
+arrayofNums = arrayOfNums.pop(700);
+message6.textContent+=" length of array after pop "+arrayOfNums + "  length of array after pop  "+arrayOfNums.length;
+arrayofNums = arrayOfNums.shift(800);
+message7.textContent+="  length of array after shift "+arrayOfNums+ "  length of array after shift  "+arrayOfNums.length;
+*/
+
+/********************************** IMMUTABLE ARRAYS ***********************************************************/
+
+
+
+
+
+
+
+//join array
+//just to give an example , javascript allows mixed primitive data types such as char and int (java) in an array !
+var arr1 = ["a","b","c"];
+var arr2 = [1,2,3,4,5,6];
+var arr3 = arr1.concat(arr2);//mutable !
+console.log(arr3.toString());
+
+
+//dont use the delete keyword in javascript
+//delete only sets .. arr[random_index_inrangeofarray_here] to undefined
+//delete is not recommended
+//syntax is
+
+var foo = ["a","s","d","f","w","z","x","c","v","b"]//neoooo geoooooo !
+console.log(foo.length);
+delete foo[5];
+console.log(foo.length);//note that length will remain same
+console.log(v[5]);//returns undefined !
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

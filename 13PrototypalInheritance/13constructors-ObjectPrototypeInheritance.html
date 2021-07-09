@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>OOP - Constructors</title>
+<link rel="stylesheet" type="text/css" media="all" href="styles/styles.css" />
+</head>
+<body style="background-color:black">
+
+<h1>OOP - Constructors</h1>
+
+<p id="message"> </p>
+<p id="message2"> </p>
+<p id="message3" style = "color: cyan"> </p>
+
+<p id="message4"> </p>
+<p id="message5" style="font-style: bold; color:red;"> </p>
+<p id="message6"> </p>
+
+<p id="message7"> </p>
+<p id="message8"> </p>
+<p id="message9"> </p>
+<p id="message10"> </p>
+<p id="message11"> </p>
+<script>
+function car(make,model,color){
+	this.make = make || "unknown";
+	this.model = model || "model";
+	this.color = color || "unpainted";
+	/*this.display = function() {
+		message.style = "color: blue";
+		message.innerHTML += "<p> your car is a " +this.color+"  " +this.make+"  " +this.model+".</p>";
+	}*/
+}
+
+//every object has a prototype property, that associates an object with its constructor function
+//
+car.prototype.display = function() {
+		message.style = "color: cyan";
+		message.innerHTML += "<p> your car is a " +this.color+"  " +this.make+"  " +this.model+".</p>";
+	}
+//create objects
+var c1 = new car("Lamborghini","Aventador Super Veloce Jota","Blu Sideris");
+var c2 = new car("Lamborghini","Murcielago SuperVeloce","Baby Blue");
+var c3 = new car("Lamborghini","Gallardo","Celeste");
+var c4 = new car();
+c1.display();
+//change display property method.. and then run it... but note that the other objects will execute the prototype property display function
+c1.display = function() { message.innerHTML += "Lamborghini Reventon";}
+c1.display();
+c3.color ="Grigio Reventon";
+
+c2.display();
+c3.display();
+c4.display();
+
+
+//PROTOTYPAL INHERITANCE
+//the constructor is creating a new display function everytime we use the new keyword with a new car object
+//this is wasting computer resources
+
+
+String.prototype.reverse = function(){
+		return this.split("").reverse().join("");
+		
+};
+
+var palindromestring = "detartrated           ";
+var nonpalindromestring ="        i am programming in javascript         ";
+message3.innerHTML += palindromestring.reverse();
+message3.innerHTML += nonpalindromestring.reverse();
+
+for(var c in palindromestring){
+	if(palindromestring.hasOwnProperty(c)){ // will only return the properties of String (dont extend native objects with your methods)
+	message3.innerHTML+=c;
+	}
+}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+small library that intercepts a javascript api call
+and alter operation itself or change behaviour in some way
+
+also called shivs or polyfills
+
+implement a browser api when browser itself does not support it.
+

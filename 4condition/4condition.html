@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>How to add JavaScript to your web page</title>
+<link rel="stylesheet" type="text/css" media="all" href="styles/styles.css" />
+</head>
+<body>
+
+<h1>Error Handling</h1>
+<p id="message"> </p>
+<script>
+//set-up variables
+var message = document.getElementById("message");
+var name = prompt("What is your name ? ");
+var output="";
+
+
+if(name){
+output = "How Are You, "+name+"?";
+
+
+}
+
+else{
+output = "Invalid Input , Please Enter Name Again";
+}
+
+try{
+//output
+var p = document.getElementById("message");
+if(p){
+p.textContent = output; 
+}
+}catch(e) {
+	console.error(e);
+} finally{
+	alert("Done");
+}
+
+</script>
+</body>
+</html>

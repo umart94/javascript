@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>OOP</title>
+<link rel="stylesheet" type="text/css" media="all" href="styles/styles.css" />
+</head>
+<body>
+
+<h1>OOP</h1>
+
+<p id="message"> </p>
+<p id="message2"> </p>
+<p id="message3"> </p>
+
+<p id="message4"> </p>
+<p id="message5" style="font-style: bold; color:red;"> </p>
+<p id="message6"> </p>
+
+<p id="message7"> </p>
+<p id="message8"> </p>
+<p id="message9"> </p>
+<p id="message10"> </p>
+<p id="message11"> </p>
+<script>
+//EVERYTHING IN JAVASCRIPT IS AN Object native strings , numbers and booleans are objects ... the main difference from the rest of the languages is that there is no class keyword
+/*
+1. we can create class like object templates
+2. we can use inheritance
+3. we can create single objects without a template
+4. we can extend individual objects without affecting others (objects)
+5. we can extend every instance of an object
+*/
+
+
+
+//Car Object
+//NumberOfWheels , ManufacturerName , Color properties that define it
+//some properties are changeable such as color , Body Kits, Spoilers , Rims ,Hoods , Roof Scoops , Engine , Transmission , Suspension, Tyres , Brakes ,Turbo , NOS , Police disabling EMF :D xD
+//some proerties are not changeable like car company .. such as suzuki mehran.. you cant change it again to something else like the Batmobile or lamgorghini
+
+//Interact with car object using functions and methods
+//startEngine(), runWindShieldViper()
+//after the method runs there is change in car such as car moves faster and wind screen is cleaned 
+
+
+//Online shop products books , dvds
+//properties or variables
+//book will have title , isbn , author , publisher
+//properties are price ,tax rate , shouldwewrap it and give you as a gift ? , cash or credit card etc.
+//displayproductsinwebpage() , addToShoppingCart()
+
+//Object allows you to change some properties , some unchanged , other programs and objects can interact with it without knowing internal structure
+
+
+var s = "muhammad umar tariq";
+console.log(s.length);
+console.log(s.substr(0,7)); //will output muhamma 
+console.log(s.substr(0,8)); //will output muhammad
+
+//here variable s is an object
+//we define an object template
+//another example
+
+var car = car || {};
+car.make = "Lamborghini Automobilia S.p. A";
+car.model = "Gallardo";
+car.color = "Monterey Blue OEM";
+car.version = "Spyder";
+
+car.display = function() {
+	message.style = "color:aqua";
+	message.innerHTML += "<h2> Drive Safe, Obey Laws Of The Road, And Always Wear Your SeatBelt, You will be driving a"+this.color+ " CAR  made by " +this.make + " and the model we have is  " +this.model+this.version+"</h2>";
+	
+};
+
+
+
+car.display();
+
+var property = "version";
+car[property] = "SuperVeloce";
+
+//car.display();
+car["display"]();//same as above
+
+
+
+
+var car2 = car2 || {
+	make: "BMW",
+	model: "M3 GTR GT E46",
+	color: "Titanium Silver Metallic",
+	version: "NFS MOST WANTED BLACKLIST",
+	display: function(){
+		message.style = "color:blue";
+		message.innerHTML += "<h2> BLACKLIST B) B) B) "+this.color+ " CAR made by " +this.make + " and the model we have is  " +this.model+this.version+"</h2>";
+			
+	}
+
+};
+
+//car2.display();
+
+var car3 = car2;//car3 and car2 point to same object 
+car2.color = "Black and Blue";
+//car2.display();
+//car3.display();
+//car.display(); // see changes in all methods one by one , message should have color of the function called at the very end
+
+var car4 = car4 || {};
+
+for(var prop in car){
+	if(car.hasOwnProperty(prop)) 
+	{
+		car4[prop] = car[prop];
+	
+	}
+}
+
+
+car.display();
+car4.display();
+
+car4.make="NISSAN";
+car4.model = "GTR 2020 NISMO";
+car4.color = "WHITE";
+car4.display();
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+READ ABOUT STRICT MODE IN JS AND
+https://www.stevethedev.com/blog/programming/public-private-and-protected-scope-javascript
+*/
+
+
+</script>
+</body>
+</html>

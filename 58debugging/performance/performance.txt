@@ -1,0 +1,19 @@
+when we record we get a timeline
+
+network events
+event tab shows every action and what the browser is doing at that point
+e.g requests for downloaded file
+
+
+frames
+frames drawn per second on the browser window (screen animation)
+
+timing
+
+memory
+
+memory tab indicates how much memory is being consumed at that time.
+
+
+profiles is similiar to a timeline
+profiles records how long each process took and presents it from most to least expensive

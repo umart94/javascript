@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>How to add JavaScript to your web page</title>
+<link rel="stylesheet" type="text/css" media="all" href="styles/styles.css" />
+</head>
+<body>
+
+<h1>For Loop Example with factorial of number</h1>
+<p id="message"> </p>
+<script>
+var message = document.getElementById("message");
+
+
+var f = [];
+	var num = Number(prompt("Enter a Number : "));
+	while( isNaN(num) )
+	{
+		num = parseInt(prompt("Enter Number"));
+		if( !isNaN(num) ){
+			break;
+		}
+	}
+	function factorial(num){
+		if(num==0 || num==1)
+			{
+				return 1;
+			}
+			
+		if(f[num] > 0)
+			{
+				return f[num];
+			}
+			
+	return f[num] = factorial(num-1) * num;
+	}
+//output factorial message
+message.textContent = num + "!== " + factorial(num);
+
+
+
+
+
+
+
+
+
+
+
+if(people>0){
+
+
+
+//cake calculation - touch my cake and u die !
+var cakesEach = Math.floor(cakes / people);
+var leftOver = cakes % people;
+msg = " Each person receives " + cakesEach + " cakes , with " + leftOver + " left over " ;
+
+
+}
+
+else{
+		msg = "Invalid Input!";
+}
+
+try{
+//output
+var p = document.getElementById("message");
+if(p){
+p.textContent = msg; 
+}
+}catch(e) {
+	console.error(e);
+} finally{
+	alert("Done");
+}
+
+</script>
+</body>
+</html>

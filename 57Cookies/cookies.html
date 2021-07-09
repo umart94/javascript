@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>HTML Cookies</title>
+<link rel="stylesheet" media="all" href="styles/styles.css" />
+</head>
+<body>
+
+	<header>
+		<h1>An Introduction to JavaScript</h1>
+		<p>HTML Cookies</p>
+	</header>
+
+	<article>
+
+		<p>Cookies are not evil!</p>
+		
+		<ul>
+		<li>cookies are specific to a domain, e.g. domain1.com</li>
+		<li>and, optionally, a path on that domain, e.g. domain1.com/path1/</li>
+		<li>cookies can expire at a set date and time</li>
+		<li>or when the browser is closed (session cookie)</li>
+		<li>cookies can be SECURE</li>
+		<li>domains are limited to 20 cookies</li>
+		<li>no cookie can be greater that 4Kb</li>
+		</ul>
+		
+		<h2>Output</h2>
+		
+		<div id="output"></div>
+	
+	</article>
+
+
+<script src="scripts/cookielib.js"></script>
+<script src="scripts/cookies.js"></script>
+
+</body>
+<script>
+/*
+cookie is a small http data that is sent with every http request.
+since web is stateless, every request browser makes is independent
+cookies allow to maintain state
+browser sends cookie to server
+and server responds with either same cookie or changed cookie
+
+for e.g
+
+shopping carts
+logins
+
+
+but nowadays sessions are used at server side.. its still using cookies but it has some security features.
+
+security restrictions :
+1. cookies are domain specific
+domain1.com cannot see domain2.com cookies
+we can specify which domain a cookie belongs to if using subdomains
+specify url paths
+
+the default path is the one where application resides
+we can set it to the root path so it can be modified by other applications
+on our server
+
+
+they are set to expire on certain date and time
+otherwise when we close browser they are expired
+
+there is no possibility of deleting cookies only expiring them.
+
+a domain can only set 20 cookies, and each one can only store about 4000 characters.
+
+
+everything is handled using a single document cookie property.
+
+
+
+
+
+*/
+</script>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>OOP - Constructors</title>
+<link rel="stylesheet" type="text/css" media="all" href="styles/styles.css" />
+</head>
+<body style="background-color:white">
+
+<h1>Maths</h1>
+
+<!-- https://www.geeksforgeeks.org/generating-password-otp-java/ --> 
+<!-- https://www.java67.com/2018/01/3-ways-to-generate-random-integers-on.html 
+
+
+http://barbecue.sourceforge.net/
+http://barcode4j.sourceforge.net/
+https://github.com/kenglxn/QRGen
+https://zxing.org/w/decode.jspx
+https://zxing.github.io/zxing/apidocs/
+https://zxing.github.io/zxing/
+https://groups.google.com/forum/#!forum/zxing
+
+-->
+
+<h3>an arbitrary random number :</h3>
+<p id="message1" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+<h3>The maximum is exclusive and the minimum is inclusive :</h3>
+<p id="message2" style = "
+font-family:verdana; 
+background-color:#006400;
+color: LightGray;"> </p>
+
+
+
+<h3>The maximum is inclusive and the minimum is inclusive :</h3>
+<p id="message3" style = "
+font-family:verdana; 
+background-color:#006400;
+color: LightGray;"> </p>
+
+<p id="message4"> </p>
+<p id="message5" style="font-style: bold; color:red;"> </p>
+<p id="message6"> </p>
+
+<p id="message7"> </p>
+<p id="message8"> </p>
+<p id="message9"> </p>
+<h4>Cryptographically Unsafe random numbers :</h4>
+<p id="message10"> </p>
+<h4><mark>Cryptographically Safe<mark> random numbers :</h4>
+<p id="message11"> </p>
+<script>
+//Math is a top level object in JS
+
+console.log("Math Functions Start");
+console.log(Math.PI);
+console.log(Math.E);
+console.log(Math.round(9.5));//9
+console.log(Math.ceil(9.5));//10
+console.log(Math.floor(9.5));//9
+console.log(Math.abs(-9.5));//9.5
+console.log(Math.pow(10,2));//100
+console.log(Math.sqrt(100));//10
+console.log(Math.min(0,10));//0
+console.log(Math.max(0,10));//10
+console.log("Math Functions End");
+
+
+var degrees = 30;
+var radians = 0.5;
+function degrees_to_radians(degrees)
+{
+  var pi = Math.PI;
+  return degrees * (pi/180);
+}
+
+function radians_to_degrees(radians)
+{
+  var pi = Math.PI;
+  return radians * (180/pi);
+}
+
+console.log("Trigonometry Start");
+
+//all trigonometric functions require a radian angle as argument ... so this works with radtodegree function ... but the sin,cos and tan require that you first convert degree to radian... or enter radian form instead
+console.log("Inverse trigonometric functions");
+console.log(radians_to_degrees(Math.acos(radians)));// arccosine
+console.log(radians_to_degrees(Math.asin(radians)));// arcsine
+console.log(radians_to_degrees(Math.atan(radians)));//arctangent
+console.log(radians_to_degrees(Math.atan2(Math.sqrt(3),1)));//arctangent of quotient of its arguments
+
+console.log("Sin cos and tan");
+console.log(Math.sin(degrees_to_radians(degrees)));//sine
+console.log(Math.tan(degrees_to_radians(degrees)));//tan
+console.log(Math.cos(degrees_to_radians(degrees)));//cosine 
+
+console.log("exponential function maths ... e ^ x");
+console.log(Math.exp(0));//E to power of the number - e^0=1 and e^1 = e itself
+console.log(Math.exp(1));//E to power of the number - e^0=1 and e^1 = e itself
+
+
+
+/*
+The Math.log() function returns the natural logarithm (base e) of a number, that is
+
+∀x>0,Math.log(x)=ln(x)=the unique y such that ey=x
+
+The natural log, or ln, is the inverse of e
+
+
+*/
+console.log("The ln(20) is 2.99573227355 " + Math.log(20));
+console.log("The natural log, or ln, is the inverse of e e of 2.99573227355 is " + Math.exp(2.99573227355));
+function log10(val) {
+  return Math.log(val) / Math.LN10;
+}
+console.log("The log base 10(20) is 1.30102999566 " + log10(20));
+
+
+
+
+//log base 10 of 1 is 0
+//log base 10 of x = ln(x) / ln(10)
+
+//log base 10 of x = log base 2 of x / log base 2 of 10
+
+//log of 1 is always 0 no matter what the base of log is ... any number raised to 0 always equals 1
+
+
+//log base 10 of 1 is 0
+//log base 10 of x = ln(x) / ln(10)
+function log10(val) {
+  return Math.log(val) / Math.LN10;
+}
+//log base 10 of x = log base 2 of x / log base 2 of 10
+
+
+//Log 1 in anybase returns 0
+console.log("Log 1 in any base returns 0");
+console.log(Math.log(1));//natural log of number ln(x) ( ln(1) = 0 - This is natural log of 1 ) 
+console.log(log10(1));//This is Log base 10 of 1
+
+
+
+console.log("Trigonometry End");
+
+/*
+
+The Math.random() function returns a floating-point, pseudo-random number in the range 0 to less than 1 (inclusive of 0, but not 1) 
+with approximately uniform distribution over that range — which you can then scale to your desired range. 
+The implementation selects the initial seed to the random number generation algorithm; it cannot be chosen or reset by the user.
+*/
+console.log(Math.floor(Math.random()));// 0-1 - this will return only the number 0
+console.log(Math.ceil(Math.random()));//this returns 1
+
+// make and scale your own range of random number generation
+var min = Math.ceil(min);
+var max = Math.floor(max);
+
+
+
+
+
+
+
+
+//https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+}
+var arbitraryrandomnumber = getRandomArbitrary(9.30,90064);
+message1.innerHTML = arbitraryrandomnumber;// "   an arbitrary random number";
+
+console.log(Math.floor(Math.random()*10+1));// 1- 10 random number between 1 to 10
+
+
+
+
+
+
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}
+
+var maxexclusivemininclusiverandomnumber = getRandomInt(1000,10000);
+message2.innerHTML = maxexclusivemininclusiverandomnumber;// +"   The maximum is exclusive and the minimum is inclusive";
+
+
+
+
+
+
+
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; //The maximum is inclusive and the minimum is inclusive 
+}
+
+var maxinclusivemininclusiverandomnumber = getRandomInt(1000,10000);
+message3.innerHTML = maxinclusivemininclusiverandomnumber;// +"   The maximum is inclusive and the minimum is inclusive ";
+
+
+
+
+
+/*
+
+Math.random() does not provide cryptographically secure random numbers. 
+Do not use them for anything related to security. 
+Use the Web Crypto API instead, and more precisely the window.crypto.getRandomValues() method.
+
+*/
+var i= 1;
+for(i=1;i<10;i++){
+message10.innerHTML+= "<br>"+i+".)    "+Math.random();+"<br\>" //cryptographically unsafe random number b/w 0 - 1
+}
+
+
+/* Assuming that window.crypto.getRandomValues is available */
+
+/*
+
+You should avoid using the Web Crypto API on insecure contexts, even though the Crypto interface is present on insecure contexts, 
+as is the Window.crypto property. In addition, the Crypto method getRandomValues() is available on insecure contexts, but the subtle property is not.
+
+In general, you probably should just treat Crypto as available only on secure contexts.
+
+*/
+
+var array = new Uint32Array(10);
+window.crypto.getRandomValues(array);
+console.log("cryptographically safe random numbers :");
+for (var j = 1; j < array.length; j++) {
+  message11.innerHTML += "<br>"+j+".)    "+array[j]+"<br\>";
+}
+
+</script>
+</body>
+</html>

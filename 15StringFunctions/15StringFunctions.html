@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Strings</title>
+<link rel="stylesheet" type="text/css" media="all" href="styles/styles.css" />
+</head>
+<body style="background-color:white">
+
+<h1>String Functions</h1>
+
+
+<p id="message1" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+
+<p id="message2" style = "
+font-family:verdana; 
+background-color:#006400;
+color: LightGray;"> </p>
+
+
+
+
+<p id="message3" style = "
+font-family:verdana; 
+background-color:#006400;
+color: LightGray;"> </p>
+
+<p id="message4"> </p>
+<p id="message5" style="font-style: bold; color:red;"> </p>
+<p id="message6">&#x1F1F5&#x1F1F0 </p>
+
+<p id="message7"> </p>
+<p id="message8"> </p>
+<p id="message9"> </p>
+
+<p id="message10"> </p>
+
+<p id="message11"> </p>
+
+
+
+<p id="message12"> </p>
+<p id="message13"> </p>
+<p id="message14"> </p>
+
+<p id="message15"> </p>
+
+<p id="message16"> </p>
+
+<p id="message17"> </p>
+<p id="message18"> </p>
+<p id="message19"> </p>
+
+<p id="message20"> </p>
+
+<p id="message21"> </p>
+<p id="message22"> </p>
+<p id="message23"> </p>
+<script>
+
+var string1=[0,1,2,3,4,5,6,7,8,9];
+var string2=string1.toString();
+message1.innerHTML = string2;
+
+var string3 = String(string2);
+var string4 = string3 +"";
+
+var string5 = String.fromCharCode(76,65,72,79,82,69);
+var string6 = " In Pakistan ";
+var string7 = "🇵🇰";
+
+
+//we should not convert characters to utf16 and send it to browsers.
+function toUTF16(codePoint) {
+    var TEN_BITS = parseInt('1111111111', 2);
+    function u(codeUnit) {
+        return '\\u'+codeUnit.toString(16).toUpperCase();
+    }
+
+    if (codePoint <= 0xFFFF) {
+        return u(codePoint);
+    }
+    codePoint -= 0x10000;
+
+    // Shift right to get to most significant 10 bits
+    var leadSurrogate = 0xD800 + (codePoint >> 10);
+
+    // Mask to get least significant 10 bits
+    var tailSurrogate = 0xDC00 + (codePoint & TEN_BITS);
+
+    return u(leadSurrogate) + u(tailSurrogate);
+}
+
+
+message2.innerHTML = string5+" is a city " + string6 + "  "+String.fromCodePoint(0x1F1F5)+String.fromCodePoint(0x1F1F0);
+var PString = toUTF16(0x1F1F5);
+var KString = toUTF16(0x1F1F0);
+message3.innerHTML = string5+" is a city " + string6 + "  "+PString+KString;
+message4.innerHTML = PString;
+message5.innerHTML = KString;
+message7.innerHTML = string5.length;
+message8.innerHTML = "Islamabad and Rawalpindi are 2 other cities of Pakistan".length;
+
+var string8="aBcDeFGhIJklMnOpQrStuVwxYz";
+message9.innerHTML = string8.toLowerCase();
+message10.innerHTML = string8.toUpperCase();
+
+var string9=string8.concat(message2.innerHTML);
+message11.innerHTML = string9;
+
+
+var string10 = "thisisasentiseniscise";
+message12.innerHTML = string10[4];
+
+message13.innerHTML += string10.charAt(4)+"     "+string10.charCodeAt(4);
+message14.innerHTML = String.fromCharCode(105);
+
+var string11 = string10.indexOf("is");//returns starting index or -1 if nothing returned
+message15.innerHTML = string11;
+
+var string12 = string10.lastIndexOf("is");//18
+message16.innerHTML = string12;
+
+var commaSeperatedString = "abcd,efgh,ijkl,mnop";
+message17.innerHTML = commaSeperatedString.split(",");
+message18.innerHTML = commaSeperatedString.split(",",4);
+
+
+var stringslice = "abcd,efgh,ijkl,mnop";
+message19.innerHTML = stringslice.slice(8,9)+stringslice.slice(10,11);
+message20.innerHTML = stringslice.slice(10,-5);
+
+var name="JS00012ProgrammingLanguage";
+message21.innerHTML = name.substring(7,18);//indexes
+message21.style="color: green;";
+
+message22.innerHTML = name.substr(7,11);//first parameter is starting index, second parameter is length of substring 
+
+</script>
+</body>
+</html>

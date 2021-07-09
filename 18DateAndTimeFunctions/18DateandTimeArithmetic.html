@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Date and Time Arithmetic</title>
+<link rel="stylesheet" type="text/css" media="all" href="styles/styles.css" />
+</head>
+<body style="background-color:white">
+
+<h1>Date and Time Arithmetic</h1>
+
+<h3></h3>
+<p id="message1" 
+style = "font-family:verdana; 
+background-color:#006400;
+color: LightGray;">
+
+</p>
+
+<h3></h3>
+<p id="message2" style = "
+font-family:verdana; 
+background-color:#006400;
+color: LightGray;"> </p>
+
+
+
+<h3></h3>
+<p id="message3" style = "
+font-family:verdana; 
+background-color:#006400;
+color: LightGray;"> </p>
+
+<p id="message4"> </p>
+<p id="message5" style="font-style: bold; color:red;"> </p>
+<p id="message6"> </p>
+
+<p id="message7"> </p>
+<p id="message8"> </p>
+<p id="message9"> </p>
+<h4></h4>
+<p id="message10"> </p>
+<h4></h4>
+<p id="message11"> </p>
+<p id="message11"> </p>
+
+
+
+<p id="message12"> </p>
+<p id="message13"> </p>
+<p id="message14"> </p>
+
+<p id="message15"> </p>
+
+<p id="message16"> </p>
+
+<p id="message17"> </p>
+<p id="message18"> </p>
+<p id="message19"> </p>
+
+<p id="message20"> </p>
+
+<p id="message21"> </p>
+<p id="message22"> </p>
+<p id="message23"> </p>
+<script>
+
+//0 is january and so on..
+var dateobject = new Date();
+message1.innerHTML = dateobject;
+
+var setDate = new Date("02 Aug 2020 13:05:00 GMT");//-5 from KHI.
+message2.innerHTML = setDate;
+
+var setDateObject2 = new Date(2020,07,02,06,05,00);
+message3.innerHTML = setDateObject2;
+
+
+var setDateObject3 = new Date(1000);//milliseconds since 1 JANUARY 1970 00:00:00
+message4.innerHTML = setDateObject3;
+
+var setDateObject4 = new Date();
+setDateObject4.setFullYear(2020);
+setDateObject4.setMonth(07);
+setDateObject4.setDate(02);
+setDateObject4.setHours(18);
+setDateObject4.setMinutes(12);
+setDateObject4.setSeconds(45);
+setDateObject4.setMilliseconds(800);
+message5.innerHTML = setDateObject4;
+
+
+
+setDateObject4.setFullYear(2020,07,02);//year,month,date
+setDateObject4.setMonth(07,02); //month,date
+setDateObject4.setHours(18,12,45); //month,date
+setDateObject4.setMinutes(12,45,800); //minutes,seconds,milliseconds
+setDateObject4.setSeconds(45,800); //second,ms
+message6.innerHTML = setDateObject4;
+
+setDateObject4.setTime(1000);//milliseconds since 1 JANUARY 1970 00:00:00
+message7.innerHTML = setDateObject4;
+
+
+
+//Universal Time - UTC
+//single time standard that regulates world clocks.
+
+var setDateObject5 = new Date();
+setDateObject5.setUTCFullYear(2020);
+setDateObject5.setUTCMonth(07);
+setDateObject5.setUTCDate(02);
+setDateObject5.setHours(18,12,45); //month,date
+setDateObject5.setMinutes(12,45,800); //minutes,seconds,milliseconds
+setDateObject5.setSeconds(45,800); //second,ms
+setDateObject5.setMilliseconds(800);
+message8.innerHTML = setDateObject5;
+message9.innerHTML = setDateObject5.toString();
+message10.innerHTML = setDateObject5.toLocaleString();
+message11.innerHTML = setDateObject5.toUTCString();
+message12.innerHTML = setDateObject5.getTimezoneOffset();
+message13.innerHTML = Date.parse("Jan 2, 2020");//millisecondssince01-01-1970(local time)
+
+// to display dates, , use getter methods.
+
+
+var dateNow = new Date();
+var date2021 = new Date(2021,0,1);
+
+var days2021 = Math.ceil((date2021 - dateNow)/86400000);//OR
+//var days2021 = (date2021 - dateNow)/1000/60/60/24;
+var dateAfterOneWeek = new Date(dateNow.getFullYear(),dateNow.getMonth(),dateNow.getDate()+7).toLocaleString();
+message14.innerHTML = days2021;
+message15.innerHTML = dateAfterOneWeek;
+
+
+
+</script>
+</body>
+</html>

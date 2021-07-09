@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>How to add JavaScript to your web page</title>
+<link rel="stylesheet" type="text/css" media="all" href="styles/styles.css" />
+</head>
+<body>
+
+<h1>JavaScript Arrays</h1>
+
+<p id="message"> </p>
+<p id="message2"> </p>
+<p id="message3"> </p>
+
+<p id="message4"> </p>
+<p id="message5" style="font-style: bold; color:red;"> </p>
+<p id="message6"> </p>
+
+<p id="message7"> </p>
+<p id="message8"> </p>
+<p id="message9"> </p>
+<p id="message10"> </p>
+<p id="message11"> </p>
+<script>
+
+/*
+The Problem is to sort array of integers without using the Bubble sort, insertion sort etc. sorting algorithms but only by using JS Sort function
+// sort in both ascending and descending order
+*/
+
+var arrayOfIntegers = [100,233,456,789,654,5432,5412,1244,7676,34,2,3,4,5,6,7,1];
+arrayOfIntegers.sort();
+message.textContent = arrayOfIntegers;
+//1,100,1244,2,233,3,34,4,456,5,5412,5432,6,654,7,7676,789
+//did not sort correctly !
+//no we will identify why ?
+
+/*
+By default, the sort() function sorts values as strings.
+
+This works well for strings ("Apple" comes before "Banana").
+
+However, if numbers are sorted as strings, "25" is bigger than "100", because "2" is bigger than "1".
+
+
+
+Because of this, the sort() method will produce incorrect result when sorting numbers.
+
+You can fix this by providing a compare function:
+
+like this : 
+
+ASCENDING
+var points = [40, 100, 1, 5, 25, 10];
+points.sort(function(a, b){return a - b});
+
+DESCENDING
+var points = [40, 100, 1, 5, 25, 10];
+points.sort(function(a, b){return b - a});
+
+
+OR LIKE This
+*/
+
+function sortLowToHigh(a,b){
+return a-b;
+}
+arrayOfIntegers.sort(sortLowToHigh);
+message2.innerHTML = arrayOfIntegers;
+
+
+function sortHighToLow(a,b){
+return b-a;
+}
+arrayOfIntegers.sort(sortHighToLow);
+message3.innerHTML = arrayOfIntegers;
+
+
+
+var animalsArray = ["Blue Tang Fish I LIKE SAND !","penguin","cat","shibe","husky","hamster","rabbit","lion","tiger","jaguar","panther","antelope","aardvark","elephant","zebra","frog","Chicken turtle"];
+animalsArray.sort();
+message4.innerHTML = animalsArray.toString();
+
+
+function SortStringsByLength(a,b){
+
+return a.length - b.length; //strings ordered by length
+
+}
+
+animalsArray.sort(SortStringsByLength);
+message5.innerHTML = animalsArray.toString();
+
+
+
+</script>
+</body>
+</html>

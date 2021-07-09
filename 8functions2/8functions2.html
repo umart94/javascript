@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>How to add JavaScript to your web page</title>
+<link rel="stylesheet" type="text/css" media="all" href="styles/styles.css" />
+</head>
+<body>
+
+<h1></h1>
+<p id="message"> </p>
+<p id="message2"> </p>
+<p id="message3"> </p>
+<p id="message4"> </p>
+<p id="message5"> </p>
+<script>
+
+
+function showMessage(a,b,c){
+	a = a || "";//if a is not null undefined or empty string.. then set it to a , else set it to empty string
+	b = b || "";
+	c = c || "";
+	console.log(a + " " + b + " " + c);
+}
+
+showMessage("Angular","Node","Mongodb");
+showMessage("Angular");//b and c are undefined
+
+function showMessage2(){
+	var s = "";
+	for(var i = 0;i < arguments.length;i++){
+			s+= arguments[i];
+	}
+	
+	console.log(s);
+	//arguments[0];
+	//arguments[1];
+	//arguments.length
+}
+console.log(showMessage2("A for apple","B for ball", "c for cat","d for dog","e for EA Sports"));//if we write without console.log.. it wont output anything
+
+
+
+//function with return statement
+function showMessage2(){
+	var s = "";
+	for(var i = 0;i < arguments.length;i++){
+			s+= arguments[i];
+	}
+	
+	return s;
+	//arguments[0];
+	//arguments[1];
+	//arguments.length
+}
+console.log(showMessage2("F for fail","g for grounded", "h for hotmail","i for icecream","j for javed miandad"));
+
+
+
+//Variable scope ki class
+
+var x= 1; //global variable
+function changexto2(){
+x = 2;
+}
+function changexto3(){
+var x = 3;//local variable
+}
+
+console.log(x);
+changexto2();
+console.log(x);
+changexto3();
+console.log(x);
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

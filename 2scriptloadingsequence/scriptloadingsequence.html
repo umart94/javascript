@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>How to add JavaScript to your web page</title>
+
+<!-- styles in head jquery,jqueryui,bootstrap,custom -->
+
+<!--jQuery , only provides jsfile-->
+
+<!--jQuery , only provides jsfile-->
+
+
+<!-- jQueryUI , structure and theme.css is combined in jquery-ui.css-->
+<link rel="stylesheet" type="text/css" media="all" href="../includedfiles/jqueryui/jquery-ui.css" />
+<!-- jQueryUI , structure and theme.css is combined in jquery-ui.css -->
+
+
+<!-- bootstrap -->
+<link rel="stylesheet" type="text/css" media="all" href="../includedfiles/bootstrap/css/bootstrap.css" />
+<!-- bootstrap -->
+
+
+<!-- custom -->
+<link rel="stylesheet" type="text/css" media="all" href="../includedfiles/customstyles/customstyles.css" />
+<!-- custom -->
+
+
+
+<!-- scripts for the libraries ui components, they need to be initialized before calling any other methods -->
+ 
+
+<!-- scripts for the libraries ui components, they need to be initialized before calling any other methods -->
+
+
+
+
+</head>
+<body>
+
+<!-- nav always in body -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+
+<!-- nav always in body -->
+
+<h1>This page has jQuery,jQueryUI and Bootstrap</h1>
+
+<!-- Modified flexbox vertical alignment , vertically and horizontally align columns-->
+<div class="container">
+  <div class="row align-items-start">
+    <div class="mt-2 col">
+      One of three columns
+    </div>
+    <div class="mt-2 col">
+      One of three columns
+    </div>
+    <div class="mt-2 col">
+      One of three columns
+    </div>
+  </div>
+  <div class="mt-2 row align-items-center">
+    <div class="mt-2 col">
+      One of three columns
+    </div>
+    <div class="mt-2 col">
+      One of three columns
+    </div>
+    <div class="mt-2 col">
+      One of three columns
+    </div>
+  </div>
+  <div class="mt-2 row align-items-end">
+    <div class="mt-2 col">
+      One of three columns
+    </div>
+    <div class="mt-2 col">
+      One of three columns
+    </div>
+    <div class="mt-2 col">
+      One of three columns
+    </div>
+  </div>
+</div>
+
+ <div class="mb-5 col">
+   
+    </div>
+<p>Date: <input type="text" id="datepicker"></p>
+
+ <div class="mb-5 col">
+   
+    </div>
+
+
+<p>
+  <label for="spinner">Select a value:</label>
+  <input id="spinner" name="value">
+</p>
+ 
+<p>
+  <button id="disable">Toggle disable/enable</button>
+  <button id="destroy">Toggle widget</button>
+</p>
+ 
+<p>
+  <button id="getvalue">Get value</button>
+  <button id="setvalue">Set value to 5</button>
+</p>
+ 
+
+ <div class="mb-5 col">
+   
+    </div>
+	
+	
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">Nunc tincidunt</a></li>
+    <li><a href="#tabs-2">Proin dolor</a></li>
+    <li><a href="#tabs-3">Aenean lacinia</a></li>
+  </ul>
+  <div id="tabs-1">
+    <p>Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus. Curabitur nec arcu. Donec sollicitudin mi sit amet mauris. Nam elementum quam ullamcorper ante. Etiam aliquet massa et lorem. Mauris dapibus lacus auctor risus. Aenean tempor ullamcorper leo. Vivamus sed magna quis ligula eleifend adipiscing. Duis orci. Aliquam sodales tortor vitae ipsum. Aliquam nulla. Duis aliquam molestie erat. Ut et mauris vel pede varius sollicitudin. Sed ut dolor nec orci tincidunt interdum. Phasellus ipsum. Nunc tristique tempus lectus.</p>
+  </div>
+  <div id="tabs-2">
+    <p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+  </div>
+  <div id="tabs-3">
+    <p>Mauris eleifend est et turpis. Duis id erat. Suspendisse potenti. Aliquam vulputate, pede vel vehicula accumsan, mi neque rutrum erat, eu congue orci lorem eget lorem. Vestibulum non ante. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce sodales. Quisque eu urna vel enim commodo pellentesque. Praesent eu risus hendrerit ligula tempus pretium. Curabitur lorem enim, pretium nec, feugiat nec, luctus a, lacus.</p>
+    <p>Duis cursus. Maecenas ligula eros, blandit nec, pharetra at, semper at, magna. Nullam ac lacus. Nulla facilisi. Praesent viverra justo vitae neque. Praesent blandit adipiscing velit. Suspendisse potenti. Donec mattis, pede vel pharetra blandit, magna ligula faucibus eros, id euismod lacus dolor eget odio. Nam scelerisque. Donec non libero sed nulla mattis commodo. Ut sagittis. Donec nisi lectus, feugiat porttitor, tempor ac, tempor vitae, pede. Aenean vehicula velit eu tellus interdum rutrum. Maecenas commodo. Pellentesque nec elit. Fusce in lacus. Vivamus a libero vitae lectus hendrerit hendrerit.</p>
+  </div>
+</div>
+  <div class="mb-5 col">
+   
+    </div>
+
+
+
+
+
+
+
+
+<!--jQuery -->
+<script src="../includedfiles/jquery/jquery-3.5.1.js"></script>
+<!--jQuery -->
+
+
+
+<!-- jQueryUI -->
+<script src="../includedfiles/jqueryui/jquery-ui.js"></script>
+<!-- jQueryUI -->
+
+
+<script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+  </script>
+  
+  
+ <script>
+  $( function() {
+    var spinner = $( "#spinner" ).spinner();
+ 
+    $( "#disable" ).on( "click", function() {
+      if ( spinner.spinner( "option", "disabled" ) ) {
+        spinner.spinner( "enable" );
+      } else {
+        spinner.spinner( "disable" );
+      }
+    });
+    $( "#destroy" ).on( "click", function() {
+      if ( spinner.spinner( "instance" ) ) {
+        spinner.spinner( "destroy" );
+      } else {
+        spinner.spinner();
+      }
+    });
+    $( "#getvalue" ).on( "click", function() {
+      alert( spinner.spinner( "value" ) );
+    });
+    $( "#setvalue" ).on( "click", function() {
+      spinner.spinner( "value", 5 );
+    });
+ 
+    $( "button" ).button();
+  } );
+  </script>
+
+
+<script>
+  $( function() {
+    $( "#tabs" ).tabs();
+  } );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- bootstrap -->
+<script src="../includedfiles/bootstrap/js/bootstrap.js"></script>
+<!-- bootstrap -->
+
+
+
+
+
+
+
+
+
+<!-- custom javascripts -->
+<script>
+document.write("<p>Hello from the top of the page!</p>");
+</script>
+
+<script src="../includedfiles/customjs/myscript1.js"></script>
+
+<script src="../includedfiles/customjs/myscript2.js"></script>
+<script>
+document.write("<p>Hello from the bottom of the page!</p>");
+</script>
+
+
+
+
+
+
+
+  
+<!-- custom javascripts  -->
+</body>
+
+
+
+
+</html>

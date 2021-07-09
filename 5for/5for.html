@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>How to add JavaScript to your web page</title>
+<link rel="stylesheet" type="text/css" media="all" href="styles/styles.css" />
+</head>
+<body>
+
+<h1>For Loop Example with factorial of number</h1>
+<p id="message"> </p>
+<script>
+var message = document.getElementById("message");
+var num = Number(prompt("Enter a Number : "));
+var output = 1;
+for(var i=2;i<=num;i++){
+	output = output * i;
+}
+
+//output factorial message
+message.textContent = num +"! = "+ output;
+</script>
+</body>
+</html>

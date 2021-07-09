@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>How to add JavaScript to your web page</title>
+<link rel="stylesheet" type="text/css" media="all" href="styles/styles.css" />
+</head>
+<body>
+
+<h1>Error Handling</h1>
+<p id="message"> </p>
+<script>
+//set-up variables
+var cakes = 10;
+var people = 3;
+//var people="none";
+
+var msg;
+
+if(people>0){
+
+
+
+//cake calculation - touch my cake and u die !
+var cakesEach = Math.floor(cakes / people);
+var leftOver = cakes % people;
+msg = " Each person receives " + cakesEach + " cakes , with " + leftOver + " left over " ;
+
+
+}
+
+else{
+		msg = "Invalid Input!";
+}
+
+try{
+//output
+var p = document.getElementById("message");
+if(p){
+p.textContent = msg; 
+}
+}catch(e) {
+	console.error(e);
+} finally{
+	alert("Done");
+}
+
+</script>
+</body>
+</html>
